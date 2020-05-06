@@ -17,7 +17,7 @@ export class AccountsComponent {
   }
 
   onCreateAccount() {
-    this.accountCreationStatus = 'ანგარიში შეიქმნა!';
+    this.accountCreationStatus = 'ანგარიში შეიქმნა! ახალი ანგარიშის სახელია: ' + this.accountName;
   }
 
   onUpdateAccountName(event) {
