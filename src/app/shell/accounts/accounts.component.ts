@@ -9,6 +9,7 @@ export class AccountsComponent {
   allowNewAccount = false;
   accountCreationStatus = 'ჯერ არ შექმნილა!';
   accountName = 'სატესტო ანგარიში';
+  accountCreated = false;
 
   constructor() {
     setTimeout(() => {
@@ -17,6 +18,7 @@ export class AccountsComponent {
   }
 
   onCreateAccount() {
+    this.accountCreated = true;
     this.accountCreationStatus = 'ანგარიში შეიქმნა! ახალი ანგარიშის სახელია: ' + this.accountName;
   }
 

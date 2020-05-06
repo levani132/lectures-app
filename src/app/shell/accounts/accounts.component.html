@@ -15,6 +15,7 @@
   [disabled]="!allowNewAccount"
   (click)="onCreateAccount()">Add Account</button>
 <!-- <p [innerText]="allowNewAccount"></p> -->
-<p>{{ accountCreationStatus }}</p>
+<!-- <p>{{ accountCreationStatus }}</p> -->
+<p *ngIf="accountCreated">ანგარიში შეიქმნა! ახალი ანგარიშის სახელია: {{ accountName }}</p>
 <bg-account></bg-account>
 <bg-account></bg-account>
