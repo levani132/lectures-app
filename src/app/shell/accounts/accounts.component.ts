@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AccountsComponent {
   allowNewAccount: boolean = false;
   accountCreationStatus = 'ჯერ არ შექმნილა!';
-  accountName = '';
+  accountName = 'სატესტო ანგარიში';
 
   constructor() {
     setTimeout(() => {

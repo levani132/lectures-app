@@ -1,9 +1,12 @@
 <div class="ui form">
   <div class="field">
     <label>ანგარიშის სახელი</label>
+    <!-- <input 
+      type="text"
+      (input)="onUpdateAccountName($event)"> -->
     <input 
       type="text"
-      (input)="onUpdateAccountName($event)">
+      [(ngModel)]="accountName">
   </div>
 </div>
 <p>{{ accountName }}</p>
