@@ -1,1 +1,5 @@
-<p [ngStyle]="{ backgroundColor: getColor() }">{{ 'Account' }} with accountKey: {{ accountKey }} is {{ getAccountStatus() }}</p>
+<p
+[ngStyle]="{ backgroundColor: getColor() }"
+[ngClass]="{ active: accountStatus === 'active' }">
+{{ 'Account' }} with accountKey: {{ accountKey }} is {{ getAccountStatus() }}
+</p>
