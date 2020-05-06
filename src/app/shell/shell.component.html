@@ -1,0 +1,19 @@
+<div class="ui form">
+  <div class="field">
+    <label>username</label>
+    <input type="text" [(ngModel)]="username">
+  </div>
+</div>
+<p>{{ username }}</p>
+<button [disabled]="!username" class="ui button" (click)="username = ''">წაშლა</button>
+
+<hr>
+
+<button class="ui blue button" (click)="onClickButton();">გამოჩენა</button>
+<p *ngIf="showHidden">გამაქრე</p>
+<p 
+  *ngFor="let click of clicks"
+  [ngStyle]="{ backgroundColor: click >= 5 ? 'blue' : 'transparent' }"
+  [ngClass]="{ white: click >= 7 }">
+  {{ click }}
+</p>
