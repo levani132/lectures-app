@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./accounts.component.scss']
 })
 export class AccountsComponent {
-  allowNewAccount: boolean = false;
+  allowNewAccount = false;
   accountCreationStatus = 'ჯერ არ შექმნილა!';
   accountName = 'სატესტო ანგარიში';
 

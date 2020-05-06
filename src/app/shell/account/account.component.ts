@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./account.component.scss']
 })
 export class AccountComponent {
-  accountKey: number = 15;
-  accountStatus: string = 'active';
+  accountKey = 15;
+  accountStatus = 'active';
 
   constructor() { }
 
