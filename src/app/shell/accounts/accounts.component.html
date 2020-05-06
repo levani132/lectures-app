@@ -1,6 +1,17 @@
+<div class="ui form">
+  <div class="field">
+    <label>ანგარიშის სახელი</label>
+    <input 
+      type="text"
+      (input)="onUpdateAccountName($event)">
+  </div>
+</div>
+<p>{{ accountName }}</p>
 <button
   class="ui button"
-  [disabled]="!allowNewAccount">Add Account</button>
-  <!-- <p [innerText]="allowNewAccount"></p> -->
+  [disabled]="!allowNewAccount"
+  (click)="onCreateAccount()">Add Account</button>
+<!-- <p [innerText]="allowNewAccount"></p> -->
+<p>{{ accountCreationStatus }}</p>
 <bg-account></bg-account>
 <bg-account></bg-account>
