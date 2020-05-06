@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'bg-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.scss']
 })
-export class AccountComponent implements OnInit {
+export class AccountComponent {
+  accountKey: number = 15;
+  accountStatus: string = 'active';
 
   constructor() { }
 
-  ngOnInit(): void {
+  getAccountStatus() {
+    return this.accountStatus;
   }
 
 }
