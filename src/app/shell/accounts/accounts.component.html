@@ -17,4 +17,6 @@
 <!-- <p [innerText]="allowNewAccount"></p> -->
 <!-- <p>{{ accountCreationStatus }}</p> -->
 <p *ngIf="accountCreated">ანგარიში შეიქმნა! ახალი ანგარიშის სახელია: {{ accountName }}</p>
-<bg-account *ngFor="let account of accounts"></bg-account>
+<div *ngFor="let account of accounts; let i = index" [ngStyle]="{border: 'solid 3px ' + (i % 2 ? 'blue' : 'transparent') }">
+  <bg-account></bg-account>
+</div>
