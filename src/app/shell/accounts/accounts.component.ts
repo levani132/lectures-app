@@ -5,11 +5,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './accounts.component.html',
   styleUrls: ['./accounts.component.scss']
 })
-export class AccountsComponent implements OnInit {
+export class AccountsComponent {
+  allowNewAccount: boolean = false;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
+    setTimeout(() => {
+      this.allowNewAccount = true;
+    }, 2000);
   }
 
 }
