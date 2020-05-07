@@ -6,8 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shell.component.scss']
 })
 export class ShellComponent implements OnInit {
-  newName: string;
-  newInfo: string;
   accountElements = [
     {
       type: 'account',
@@ -26,19 +24,19 @@ export class ShellComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onAddAccount() {
+  onAccountAdded(accountData: { newName: string, newInfo: string }) {
     this.accountElements.push({
       type: 'account',
-      name: this.newName,
-      info: this.newInfo
+      name: accountData.newName,
+      info: accountData.newInfo
     });
   }
 
-  onAddTemplate() {
+  onTemplateAdded(accountData: { newName: string, newInfo: string }) {
     this.accountElements.push({
       type: 'template',
-      name: this.newName,
-      info: this.newInfo
+      name: accountData.newName,
+      info: accountData.newInfo
     });
   }
 

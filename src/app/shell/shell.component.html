@@ -1,35 +1,9 @@
 <div class="ui container">
-  <p>დაამატე ახალი ანგარიში ან შაბლონი</p>
-  <div class="ui form">
-    <div class="field">
-      <label>ანგარიშის სახელი</label>
-      <input type="text" [(ngModel)]="newName">
-    </div>
-    <div class="orange outline field">
-      <label>დამატებითი ინფორმაცია</label>
-      <input type="text" [(ngModel)]="newInfo">
-    </div>
-    <button
-      (click)="onAddAccount()"
-      class="ui orange button">
-      ანგარიშის დამატება
-    </button>
-    <button
-      (click)="onAddTemplate()"
-      class="ui basic orange button">
-      ანგარიშის შაბლონის დამატება
-    </button>
-  </div>
+  <bg-account-creator
+    (accountAdded)="onAccountAdded($event)"
+    (templateAdded)="onTemplateAdded($event)"></bg-account-creator>
   <hr>
-  <div class="ui segments" *ngFor="let element of accountElements">
-    <div class="ui header segment">
-      <h3>{{ element.name }}</h3>
-    </div>
-    <div class="ui segment">
-      <p>
-        <strong *ngIf="element.type === 'account'" style="color: red">{{ element.info }}</strong>
-        <em *ngIf="element.type === 'template'">{{ element.info }}</em>
-      </p>
-    </div>
-  </div>
+  <bg-account-element
+    *ngFor="let element of accountElements"
+    [accountElement]="element"></bg-account-element>
 </div>

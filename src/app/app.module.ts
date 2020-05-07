@@ -4,11 +4,15 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ShellComponent } from './shell/shell.component';
+import { AccountCreatorComponent } from './shell/account-creator/account-creator.component';
+import { AccountElementComponent } from './shell/account-element/account-element.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShellComponent
+    ShellComponent,
+    AccountCreatorComponent,
+    AccountElementComponent
   ],
   imports: [
     BrowserModule,

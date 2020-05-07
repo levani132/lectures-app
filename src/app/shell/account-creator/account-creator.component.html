@@ -1,0 +1,21 @@
+<p>დაამატე ახალი ანგარიში ან შაბლონი</p>
+<div class="ui form">
+  <div class="field">
+    <label>ანგარიშის სახელი</label>
+    <input type="text" [(ngModel)]="newName">
+  </div>
+  <div class="orange outline field">
+    <label>დამატებითი ინფორმაცია</label>
+    <input type="text" [(ngModel)]="newInfo">
+  </div>
+  <button
+    (click)="onAddAccount()"
+    class="ui orange button">
+    ანგარიშის დამატება
+  </button>
+  <button
+    (click)="onAddTemplate()"
+    class="ui basic orange button">
+    ანგარიშის შაბლონის დამატება
+  </button>
+</div>
