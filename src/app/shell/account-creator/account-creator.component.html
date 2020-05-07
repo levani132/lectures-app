@@ -6,7 +6,7 @@
   </div>
   <div class="orange outline field">
     <label>დამატებითი ინფორმაცია</label>
-    <input type="text" [(ngModel)]="newInfo">
+    <input type="text" #accountInfoInput>
   </div>
   <button
     (click)="onAddAccount(accountNameInput)"
