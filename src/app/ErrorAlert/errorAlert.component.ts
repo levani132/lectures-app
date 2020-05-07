@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
     templateUrl: './errorAlert.component.html',
     styleUrls: ['./errorAlert.component.scss']
 })
-export class ErrorAlert{
-    title='error-alert';
+export class ErrorAlertComponent {
+    title = 'error-alert';
 }
