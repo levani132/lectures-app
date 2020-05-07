@@ -1,0 +1,14 @@
+<div class="ui form">
+    <div class="field">
+        <label>Username</label>
+        <input type="text" [(ngModel)]="username">
+    </div>
+</div>
+<p>{{ username }}</p>
+<button class="ui button" [disabled]="username.length===0" (click)="username=''">ღილაკი</button>
+<hr>
+<button class="ui button" (click)="toggleParagraph()">გამოჩენა</button>
+<p *ngIf="showParagraph">გამაქრე</p>
+<p *ngFor="let count of counts" [ngStyle]="{ background: count >= 5 ? 'blue' : 'transparent'}" [ngClass]="{ white: count >= 7 }">
+    {{ count }}
+</p>
