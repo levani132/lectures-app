@@ -3,8 +3,7 @@ import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 @Component({
   selector: 'bg-account-element',
   templateUrl: './account-element.component.html',
-  styleUrls: ['./account-element.component.scss'],
-  encapsulation: ViewEncapsulation.ShadowDom
+  styleUrls: ['./account-element.component.scss']
 })
 export class AccountElementComponent implements OnInit {
   // tslint:disable-next-line:no-input-rename
