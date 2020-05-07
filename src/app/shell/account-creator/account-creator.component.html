@@ -2,19 +2,19 @@
 <div class="ui form">
   <div class="field">
     <label>ანგარიშის სახელი</label>
-    <input type="text" [(ngModel)]="newName">
+    <input type="text" #accountNameInput>
   </div>
   <div class="orange outline field">
     <label>დამატებითი ინფორმაცია</label>
     <input type="text" [(ngModel)]="newInfo">
   </div>
   <button
-    (click)="onAddAccount()"
+    (click)="onAddAccount(accountNameInput)"
     class="ui orange button">
     ანგარიშის დამატება
   </button>
   <button
-    (click)="onAddTemplate()"
+    (click)="onAddTemplate(accountNameInput)"
     class="ui basic orange button">
     ანგარიშის შაბლონის დამატება
   </button>

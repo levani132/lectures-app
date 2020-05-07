@@ -10,7 +10,7 @@ export class AccountCreatorComponent implements OnInit {
   @Output('accountAdded') accountCreated = new EventEmitter<{ newName: string, newInfo: string }>();
   // tslint:disable-next-line:no-output-rename
   @Output('templateAdded') templateCreated = new EventEmitter<{ newName: string, newInfo: string }>();
-  newName: string;
+  // newName: string;
   newInfo: string;
 
   constructor() { }
@@ -18,16 +18,16 @@ export class AccountCreatorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onAddAccount() {
+  onAddAccount(nameInput: HTMLInputElement) {
     this.accountCreated.emit({
-      newName: this.newName,
+      newName: nameInput.value,
       newInfo: this.newInfo
     });
   }
 
-  onAddTemplate() {
+  onAddTemplate(nameInput: HTMLInputElement) {
     this.templateCreated.emit({
-      newName: this.newName,
+      newName: nameInput.value,
       newInfo: this.newInfo
     });
   }
