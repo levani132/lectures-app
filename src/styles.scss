@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: bpg_arial;
+  src: url('/assets/fonts/bpg_arial_2009.ttf');
+}
+
+html, body, h1, h2, h3, h4, h5, button {
+  font-family: bpg_arial !important;
+}
