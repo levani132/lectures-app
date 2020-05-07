@@ -5,5 +5,10 @@
   <hr>
   <bg-account-element
     *ngFor="let element of accountElements"
-    [accountElement]="element"></bg-account-element>
+    [accountElement]="element">
+    <p>
+      <strong *ngIf="element.type === 'account'" style="color: red">{{ element.info }}</strong>
+      <em *ngIf="element.type === 'template'">{{ element.info }}</em>
+    </p>
+  </bg-account-element>
 </div>
