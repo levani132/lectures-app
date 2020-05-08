@@ -3,9 +3,11 @@
     (accountAdded)="onAccountAdded($event)"
     (templateAdded)="onTemplateAdded($event)"></bg-account-creator>
   <hr>
+  <button class="ui blue button" (click)="onChangeFirst()">შეცვალე პირველი ელემენტი</button>
+  <button class="ui blue button" (click)="onDestroySecond()">წაშალე მეორე ელემენტი</button>
   <bg-account-element
     *ngFor="let element of accountElements"
-    [accountElement]="element">
+    [name]="element.name">
     <p>
       <strong *ngIf="element.type === 'account'" style="color: red">{{ element.info }}</strong>
       <em *ngIf="element.type === 'template'">{{ element.info }}</em>

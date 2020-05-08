@@ -40,4 +40,12 @@ export class ShellComponent implements OnInit {
     });
   }
 
+  onChangeFirst() {
+    this.accountElements[0].name = 'ახალი ანგარიშის სახელი';
+  }
+
+  onDestroySecond() {
+    this.accountElements.pop();
+  }
+
 }
