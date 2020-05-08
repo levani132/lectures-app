@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'lectures-app';
+  numbers = [];
+
+  onCount(nextNumber) {
+    this.numbers.push(nextNumber);
+  }
 }

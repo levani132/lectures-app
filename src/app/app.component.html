@@ -10,5 +10,11 @@
     <li>გამოიტანეთ odd კომპონენტში უბრალოდ "Odd - რიცხვი" და Even-ში "Even - რიცხვი"</li>
     <li>ასევე კარგი იქნება თუ გასტილავთ odd და even ელემენტებს</li>
   </ol>
-  <!-- TODO: წაშალეთ ეს კომენტარი და ამის ადგილას ჩასვით თქვენი კომპონენტები -->
+  <p>გამოიყენეთ როგორც გარე, ისე შიდა სტილები და template-ები.</p>
+  <p>თუ მალე მორჩებით უფრო მეტი კომპონენტებიც გააკეთეთ და ერთმანეთში ჩასვით სურვილისამებრ საექსპერიმენტოდ.</p>
+  <bg-game-control (count)="onCount($event)"></bg-game-control>
+  <div *ngFor="let number of numbers;">
+    <bg-odd *ngIf="number % 2">{{ number }}</bg-odd>
+    <bg-even *ngIf="!(number % 2)">{{ number }}</bg-even>
+  </div>
 </div>
