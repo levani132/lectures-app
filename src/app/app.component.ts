@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'bg-root',
@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'lectures-app';
+  title = new EventEmitter<number>();
+  evenElements = [];
+  oddElements = [];
+
+  onCounterIncreased(num: number) {
+    if (num % 2) {
+      this.oddElements.push(num);
+    } else {
+      this.evenElements.push(num);
+    }
+  }
 }
