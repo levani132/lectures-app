@@ -1,0 +1,24 @@
+<div class="ui form">
+    <div class="field">
+        <input type="text" [(ngModel)]="username">
+    </div>
+</div>
+<p *ngIf="username">მომხმარებლის სახელია: {{username}}  </p>
+<button [disabled] = "!username" (click)= "username =''" class="ui button">გასუფთავება</button>
+<!-- მეორე ამოცანა -->
+<hr>
+<button (click)="onClick()" class="ui button">გამოჩენა</button>
+<p *ngIf="hidden">გამაქრე</p>
+<p>{{count.length}}  დაკლიკება</p>
+<p 
+  *ngFor="let elem of count"
+  [ngStyle]="{ backgroundColor: elem >= 5 ? 'blue' : 'transparent' }"
+  [ngClass]="{ white: elem >= 7 }">
+  {{ elem }}
+</p>
+<hr>
+<!-- ინდექსის ამოღებაც -->
+<p *ngFor="let elem of count; index as i"
+[ngStyle]="{color: 'pink', backgroundColor: 'green'}">
+    დაკლკების ინდექსი: {{i}}
+</p>
