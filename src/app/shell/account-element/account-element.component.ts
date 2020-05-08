@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, ViewChild, ElementRef, ContentChild } from '@angular/core';
 
 @Component({
   selector: 'bg-account-element',
@@ -22,6 +22,7 @@ export class AccountElementComponent implements
   // };
   @Input() name;
   @ViewChild('header', { static: true }) header: ElementRef;
+  @ContentChild('contentParagraph', { static: true }) paragraph: ElementRef;
 
   constructor() {
     console.log('constructor called');
@@ -35,6 +36,7 @@ export class AccountElementComponent implements
   ngOnInit(): void {
     console.log('ngOnInit called');
     console.log('ngOnInit header', this.header.nativeElement.textContent);
+    console.log('ngOnInit paragraph', this.paragraph.nativeElement.textContent);
   }
 
   ngDoCheck() {
@@ -43,6 +45,7 @@ export class AccountElementComponent implements
 
   ngAfterContentInit() {
     console.log('ngAfterContentInit called');
+    console.log('paragraph', this.paragraph.nativeElement.textContent);
   }
 
   ngAfterContentChecked() {
