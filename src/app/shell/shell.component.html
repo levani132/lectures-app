@@ -38,4 +38,10 @@
   </div>
   <p bgBasicHighlight>ჩვენი დირექტივით გასტილული პარაგრაფი</p>
   <p bgBetterHighlight="red" defaultColor="yellow">ჩვენი უკეთესი დირექტივით გასტილული პარაგრაფი</p>
+  <div [ngSwitch]="value">
+    <p *ngSwitchCase="5">5</p>
+    <p *ngSwitchCase="6">6</p>
+    <p *ngSwitchCase="7">7</p>
+    <p *ngSwitchDefault>default</p>
+  </div>
 </div>
