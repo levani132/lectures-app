@@ -1,0 +1,11 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'bg-shell',
+  templateUrl: './shell.component.html',
+  styleUrls: ['./shell.component.scss']
+})
+export class ShellComponent {
+  onlyOdd = false;
+  numbers = [1, 2, 3, 4, 5];
+}
