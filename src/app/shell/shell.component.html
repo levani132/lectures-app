@@ -6,7 +6,7 @@
   </button>
   <br><br>
   <div class="ui segments">
-    <ng-container *ngIf="onlyOdd">
+    <ng-container *bgUnless="!onlyOdd">
       <div
         class="ui segment"
         [ngClass]="{ odd: odd % 2 }"
@@ -15,7 +15,7 @@
           {{ odd }}
       </div>
     </ng-container>
-    <ng-container *ngIf="!onlyOdd">
+    <ng-container *bgUnless="onlyOdd">
       <div
         class="ui segment"
         [ngClass]="{ odd: even % 2 }"
@@ -24,7 +24,7 @@
           {{ even }}
       </div>
     </ng-container>
-    <ng-template [ngIf]="!onlyOdd">
+    <!-- <ng-template [bgUnless]="onlyOdd">
       <ng-container>
         <div
           class="ui segment"
@@ -34,7 +34,7 @@
             {{ even }}
         </div>
       </ng-container>
-    </ng-template>
+    </ng-template> -->
   </div>
   <p bgBasicHighlight>ჩვენი დირექტივით გასტილული პარაგრაფი</p>
   <p bgBetterHighlight="red" defaultColor="yellow">ჩვენი უკეთესი დირექტივით გასტილული პარაგრაფი</p>
