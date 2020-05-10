@@ -24,6 +24,17 @@
           {{ even }}
       </div>
     </ng-container>
+    <ng-template [ngIf]="!onlyOdd">
+      <ng-container>
+        <div
+          class="ui segment"
+          [ngClass]="{ odd: even % 2 }"
+          [ngStyle]="{ backgroundColor: even % 2 ? 'yellow' : 'transparent' }"
+          *ngFor="let even of evens">
+            {{ even }}
+        </div>
+      </ng-container>
+    </ng-template>
   </div>
   <p bgBasicHighlight>ჩვენი დირექტივით გასტილული პარაგრაფი</p>
   <p bgBetterHighlight="red" defaultColor="yellow">ჩვენი უკეთესი დირექტივით გასტილული პარაგრაფი</p>
