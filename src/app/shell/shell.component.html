@@ -9,6 +9,8 @@
     <ng-container *ngIf="onlyOdd">
       <div
         class="ui segment"
+        [ngClass]="{ odd: odd % 2 }"
+        [ngStyle]="{ backgroundColor: odd % 2 ? 'yellow' : 'transparent' }"
         *ngFor="let odd of odds">
           {{ odd }}
       </div>
@@ -16,6 +18,8 @@
     <ng-container *ngIf="!onlyOdd">
       <div
         class="ui segment"
+        [ngClass]="{ odd: even % 2 }"
+        [ngStyle]="{ backgroundColor: even % 2 ? 'yellow' : 'transparent' }"
         *ngFor="let even of evens">
           {{ even }}
       </div>
