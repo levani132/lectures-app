@@ -6,6 +6,19 @@
   </button>
   <br><br>
   <div class="ui segments">
-    <div class="ui segment"></div>
+    <ng-container *ngIf="onlyOdd">
+      <div
+        class="ui segment"
+        *ngFor="let odd of odds">
+          {{ odd }}
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!onlyOdd">
+      <div
+        class="ui segment"
+        *ngFor="let even of evens">
+          {{ even }}
+      </div>
+    </ng-container>
   </div>
 </div>
