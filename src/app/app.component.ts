@@ -7,4 +7,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'lectures-app';
+
+  oddComponents = [];
+  evenComponents = [];
+
+  addComponent(num: number) {
+
+    if (num % 2 === 0) {
+      this.evenComponents.push(num);
+      console.log('even ' + num);
+    }
+    else {
+      this.oddComponents.push(num);
+      console.log('odd ' + num);
+    }
+  }
 }
