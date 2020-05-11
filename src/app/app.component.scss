@@ -1,0 +1,37 @@
+.ui.button {
+  position: relative;
+
+  .popup {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    background-color: white;
+    color: black;
+    padding: 7px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 3px #ccc;
+    display: none;
+  
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -100%);
+      width: 10px;
+      height: 5px;
+      box-sizing: border-box;
+      border: 5px solid transparent;
+      border-bottom: 5px solid white;
+      border-top: none;
+    }
+  }
+
+  &.open {
+    .popup {
+      display: block;
+    }
+  }
+}
