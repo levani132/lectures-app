@@ -1,33 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Account, AccountStatus } from './account.model';
+import { AccountsService } from './accounts.service';
 
 @Component({
   selector: 'bg-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [AccountsService]
 })
-export class AppComponent {
-  accounts: Account[] = [
-    {
-      name: 'პირველი ანგარიში',
-      status: 'active'
-    },
-    {
-      name: 'სატესტო ანგარიში',
-      status: 'inactive'
-    },
-    {
-      name: 'უცნობი ანგარიში',
-      status: 'unknown'
-    }
-  ];
+export class AppComponent implements OnInit {
+  accounts: Account[] = [];
 
-  onAccountCreated(account: Account) {
-    this.accounts.push(account);
-  }
+  constructor(private accountsService: AccountsService) {}
 
-  onAccountStatusChanged(statusChangeEvent: { id: number, status: AccountStatus }) {
-    this.accounts[statusChangeEvent.id].status = statusChangeEvent.status;
+  ngOnInit() {
+    this.accounts = this.accountsService.accounts;
   }
 }

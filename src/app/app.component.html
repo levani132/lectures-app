@@ -1,9 +1,8 @@
 <div class="ui container">
-  <bg-account-creator (accountCreated)="onAccountCreated($event)"></bg-account-creator>
+  <bg-account-creator></bg-account-creator>
   <hr>
   <bg-account
     *ngFor="let account of accounts; let id = index;"
     [account]="account"
-    [id]="id"
-    (statusChanged)="onAccountStatusChanged($event)"></bg-account>
+    [id]="id"></bg-account>
 </div>
