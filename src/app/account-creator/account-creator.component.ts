@@ -7,7 +7,7 @@ import { AccountsService } from '../accounts.service';
   selector: 'bg-account-creator',
   templateUrl: './account-creator.component.html',
   styleUrls: ['./account-creator.component.scss'],
-  providers: [LoggingService]
+  // providers: [LoggingService]
 })
 export class AccountCreatorComponent implements OnInit {
   constructor(private loggingService: LoggingService, private accountsService: AccountsService) { }
@@ -17,7 +17,7 @@ export class AccountCreatorComponent implements OnInit {
 
   onCreateAccount(name, status) {
     this.accountsService.addAccount(name, status);
-    this.loggingService.logStatusChange(status);
+    // this.loggingService.logStatusChange(status);
   }
 
 }

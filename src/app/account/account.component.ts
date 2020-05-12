@@ -8,7 +8,7 @@ import { AccountsService } from '../accounts.service';
   selector: 'bg-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.scss'],
-  providers: [LoggingService]
+  // providers: [LoggingService]
 })
 export class AccountComponent implements OnInit {
   @Input() account: Account;
@@ -21,7 +21,7 @@ export class AccountComponent implements OnInit {
 
   onSetTo(status) {
     this.accountsService.updateSatus(this.id, status);
-    this.loggingService.logStatusChange(status);
+    // this.loggingService.logStatusChange(status);
   }
 
 }

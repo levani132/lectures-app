@@ -1,5 +1,9 @@
-import { Account, AccountStatus } from './account.model';
+import { Injectable } from '@angular/core';
 
+import { Account, AccountStatus } from './account.model';
+import { LoggingService } from './logging.service';
+
+@Injectable()
 export class AccountsService {
   accounts: Account[] = [
     {
@@ -16,11 +20,15 @@ export class AccountsService {
     }
   ];
 
+  constructor(private loggingService: LoggingService) {}
+
   addAccount(name: string, status: AccountStatus) {
     this.accounts.push({ name, status });
+    this.loggingService.logStatusChange(status);
   }
 
   updateSatus(id: number, status: AccountStatus) {
     this.accounts[id].status = status;
+    this.loggingService.logStatusChange(status);
   }
 }
