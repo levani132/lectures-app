@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { Account, AccountStatus } from './account.model';
 import { LoggingService } from './logging.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AccountsService {
   accounts: Account[] = [
     {

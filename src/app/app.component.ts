@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Account, AccountStatus } from './account.model';
+import { Account } from './account.model';
 import { AccountsService } from './accounts.service';
 
 @Component({
