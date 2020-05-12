@@ -1,0 +1,11 @@
+<div class="ui segments">
+  <div class="ui segment header">
+    <h3>{{ account.name }}</h3>
+  </div>
+  <div class="ui segment">ამ ანგარიშის სტატუსია '{{ account.status }}'</div>
+  <div class="ui segment">
+    <div class="ui basic button" (click)="onSetTo('active')">გადაიყვანე 'active' სტატუსზე</div>
+    <div class="ui basic button" (click)="onSetTo('inactive')">გადაიყვანე 'inactive' სტატუსზე</div>
+    <div class="ui basic button" (click)="onSetTo('unknown')">გადაიყვანე 'unknown' სტატუსზე</div>
+  </div>
+</div>

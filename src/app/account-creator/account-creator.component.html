@@ -1,0 +1,18 @@
+<div class="ui form">
+  <div class="field">
+    <label>ანგარიშის სახელი</label>
+    <input type="text" #accountName>
+  </div>
+  <div class="field">
+    <select #status>
+      <option value="active">აქტიური</option>
+      <option value="inactive">დახურული</option>
+      <option value="hidden">დამალული</option>
+    </select>
+  </div>
+  <button
+    class="ui blue button"
+    (click)="onCreateAccount(accountName.value, status.value)">
+    დამატება
+  </button>
+</div>
