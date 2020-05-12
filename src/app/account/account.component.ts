@@ -1,11 +1,13 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
 import { Account, AccountStatus } from '../account.model';
+import { LoggingService } from '../logging.service';
 
 @Component({
   selector: 'bg-account',
   templateUrl: './account.component.html',
-  styleUrls: ['./account.component.scss']
+  styleUrls: ['./account.component.scss'],
+  providers: [LoggingService]
 })
 export class AccountComponent implements OnInit {
   @Input() account: Account;
@@ -13,14 +15,14 @@ export class AccountComponent implements OnInit {
 
   @Output() statusChanged = new EventEmitter<{ id: number, status: AccountStatus }>();
 
-  constructor() { }
+  constructor(private loggingService: LoggingService) { }
 
   ngOnInit(): void {
   }
 
   onSetTo(status) {
     this.statusChanged.emit({ id: this.id, status });
-    console.log('სერვერის სტატუსი შეიცვალა და გახდა:', status);
+    this.loggingService.logStatusChange(status);
   }
 
 }
