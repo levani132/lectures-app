@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { LoggingService } from '../logging.service';
 import { AccountsService } from '../accounts.service';
@@ -7,7 +7,7 @@ import { AccountsService } from '../accounts.service';
   selector: 'bg-account-creator',
   templateUrl: './account-creator.component.html',
   styleUrls: ['./account-creator.component.scss'],
-  providers: [LoggingService, AccountsService]
+  providers: [LoggingService]
 })
 export class AccountCreatorComponent implements OnInit {
   constructor(private loggingService: LoggingService, private accountsService: AccountsService) { }

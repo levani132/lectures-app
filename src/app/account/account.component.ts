@@ -1,6 +1,6 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
-import { Account, AccountStatus } from '../account.model';
+import { Account } from '../account.model';
 import { LoggingService } from '../logging.service';
 import { AccountsService } from '../accounts.service';
 
@@ -8,7 +8,7 @@ import { AccountsService } from '../accounts.service';
   selector: 'bg-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.scss'],
-  providers: [LoggingService, AccountsService]
+  providers: [LoggingService]
 })
 export class AccountComponent implements OnInit {
   @Input() account: Account;
