@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CounterService } from '../counter.service';
 
 @Component({
   selector: 'bg-counter',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CounterComponent implements OnInit {
 
-  constructor() { }
+  constructor(public counterService: CounterService) { }
 
   ngOnInit(): void {
   }
