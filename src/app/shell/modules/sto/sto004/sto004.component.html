@@ -3,6 +3,7 @@
     <a class="item" href="#" *ngFor="let document of documents">{{ document.name }}</a>
   </div>
   <div class="ui segment">
+    <button class="ui blue button" (click)="onReload()">გადატვირთვა</button>
     <bg-sto004-edit-doc></bg-sto004-edit-doc>
     <hr>
     <bg-sto004-doc></bg-sto004-doc>

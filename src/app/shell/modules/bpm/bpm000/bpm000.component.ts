@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'bg-bpm000',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Bpm000Component implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  onLoadSto004() {
+    // complex logics
+    this.router.navigate(['/sto004']);
   }
 
 }
