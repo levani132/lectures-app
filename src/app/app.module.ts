@@ -24,6 +24,10 @@ const routes: Routes = [
     component: KrnicpComponent
   },
   {
+    path: 'krnicp/:id/:name',
+    component: ClientComponent
+  },
+  {
     path: 'sto004',
     component: Sto004Component
   }
