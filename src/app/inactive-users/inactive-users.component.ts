@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'bg-inactive-users',
@@ -6,17 +7,16 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./inactive-users.component.scss']
 })
 export class InactiveUsersComponent implements OnInit {
-  @Input() users: string[];
+  users: string[];
 
-  @Output() userSetToActive = new EventEmitter<number>();
-
-  constructor() { }
+  constructor(private usersService: UsersService) { }
 
   ngOnInit(): void {
+    this.users = this.usersService.inactiveUsers;
   }
 
   changeStatus(id: number) {
-    this.userSetToActive.emit(id);
+    this.usersService.onSetToActive(id);
   }
 
 }
