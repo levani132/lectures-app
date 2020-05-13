@@ -1,0 +1,28 @@
+$header-height: 60px;
+$left-sidebar-width: 256px;
+$background-color: #f0f3f6;
+$white: #fff;
+
+.shell {
+  background-color: $background-color;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  &__content {
+    float: right;
+    width: calc(100% - #{$left-sidebar-width});
+    height: calc(100% - #{$header-height});
+    overflow-y: auto;
+
+    &__operation-date {
+      margin-top: 10px;
+      text-align: right;
+
+      hr {
+        border-top: rgba(0,0,0,.1);
+        border-color: rgba(0,0,0,.1);
+      }
+    }
+  }
+}

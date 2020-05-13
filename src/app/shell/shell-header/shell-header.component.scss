@@ -1,0 +1,32 @@
+$header-height: 60px;
+$white: #fff;
+
+.header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: $header-height;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: $white;
+  z-index: 1;
+  padding: 0 10px;
+
+  &__logo {
+    display: flex;
+  }
+
+  &__left-panel {
+    display: flex;
+    align-items: center;
+
+    &__search {
+      margin-right: .25em;
+      width: 300px;
+
+      input {
+        border-radius: 20px;
+      }
+    }
+  }
+}

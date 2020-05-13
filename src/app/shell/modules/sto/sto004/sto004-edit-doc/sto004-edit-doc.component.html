@@ -1,0 +1,20 @@
+<div class="ui form">
+  <div class="fields">
+    <div class="nine wide field">
+      <label>მუდმივი დავალების სახელი</label>
+      <input type="text" [(ngModel)]="documentName">
+    </div>
+  </div>
+  <div class="fields">
+    <div class="nine wide field">
+      <label>მუდმივი დავალების სტატუსი</label>
+      <select [(ngModel)]="documentStatus">
+        <option value="active">ჩართული</option>
+        <option value="inactive">გამორთული</option>
+      </select>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="ui blue button" (click)="onUpdateDocument()">განახლება</button>
+  </div>
+</div>
