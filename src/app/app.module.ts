@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { ShellComponent } from './shell/shell.component';
@@ -12,6 +13,21 @@ import { ClientComponent } from './shell/modules/krn/krnicp/client/client.compon
 import { Sto004Component } from './shell/modules/sto/sto004/sto004.component';
 import { Sto004DocComponent } from './shell/modules/sto/sto004/sto004-doc/sto004-doc.component';
 import { Sto004EditDocComponent } from './shell/modules/sto/sto004/sto004-edit-doc/sto004-edit-doc.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: Bpm000Component
+  },
+  {
+    path: 'krnicp',
+    component: KrnicpComponent
+  },
+  {
+    path: 'sto004',
+    component: Sto004Component
+  }
+];
 
 @NgModule({
   declarations: [
@@ -28,7 +44,8 @@ import { Sto004EditDocComponent } from './shell/modules/sto/sto004/sto004-edit-d
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
