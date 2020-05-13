@@ -1,0 +1,4 @@
+<h2>არააქტიური მომხმარებლები</h2>
+<div class="ui segments">
+  <div class="ui segment" *ngFor="let user of users; let id = index;">{{ user }} | <a (click)="changeStatus(id)" href="#">გააქტიურება</a></div>
+</div>
