@@ -13,9 +13,9 @@ export class Bpm000Component implements OnInit {
   ngOnInit(): void {
   }
 
-  onLoadSto004() {
+  onLoadSto004(id: number) {
     // complex logics
-    this.router.navigate(['/sto004']);
+    this.router.navigate(['/sto004', id, 'edit'], { queryParams: { allowEdit: '1' }, fragment: 'loading' });
   }
 
 }

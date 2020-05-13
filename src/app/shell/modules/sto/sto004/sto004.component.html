@@ -1,6 +1,11 @@
 <div class="ui horizontal segments">
   <div class="ui attached vertical menu">
-    <a class="item" href="#" *ngFor="let document of documents">{{ document.name }}</a>
+    <a
+      class="item"
+      [routerLink]="['/sto004', 5, 'edit']"
+      [queryParams]="{ allowEdit: '1' }"
+      fragment="loading"
+      *ngFor="let document of documents">{{ document.name }}</a>
   </div>
   <div class="ui segment">
     <button class="ui blue button" (click)="onReload()">გადატვირთვა</button>

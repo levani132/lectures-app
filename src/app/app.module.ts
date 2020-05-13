@@ -30,6 +30,10 @@ const routes: Routes = [
   {
     path: 'sto004',
     component: Sto004Component
+  },
+  {
+    path: 'sto004/:id/edit',
+    component: Sto004EditDocComponent
   }
 ];
 
