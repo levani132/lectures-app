@@ -4,19 +4,28 @@
   </div>
   <ul class="left-sidebar__pages-section">
     <li>
-      <a routerLink="" class="active">
+      <a
+        routerLink=""
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
         <i class="home icon"></i>
         <span>მთავარი</span>
       </a>
     </li>
     <li>
-      <a routerLink="krnicp">
+      <a
+        routerLink="krnicp"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
         <i class="user icon"></i>
         <span>კლიენტები</span>
       </a>
     </li>
     <li>
-      <a [routerLink]="['sto004']">
+      <a
+        [routerLink]="['sto004']"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
         <i class="robot icon"></i>
         <span>მუდმივი დავალებები</span>
       </a>
