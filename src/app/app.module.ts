@@ -13,6 +13,7 @@ import { ClientComponent } from './shell/modules/krn/krnicp/client/client.compon
 import { Sto004Component } from './shell/modules/sto/sto004/sto004.component';
 import { Sto004DocComponent } from './shell/modules/sto/sto004/sto004-doc/sto004-doc.component';
 import { Sto004EditDocComponent } from './shell/modules/sto/sto004/sto004-edit-doc/sto004-edit-doc.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,14 @@ const routes: Routes = [
         component: Sto004EditDocComponent
       }
     ]
+  },
+  {
+    path: 'not-found',
+    component: PageNotFoundComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/not-found'
   }
 ];
 
@@ -56,7 +65,8 @@ const routes: Routes = [
     ClientComponent,
     Sto004Component,
     Sto004DocComponent,
-    Sto004EditDocComponent
+    Sto004EditDocComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
