@@ -11,17 +11,23 @@ export class Sto004EditDocComponent implements OnInit {
   document: { id: number, name: string, status: string };
   documentName = '';
   documentStatus = '';
+  allowEdit = false;
 
   constructor(private sto004Service: Sto004Service, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.queryParams);
-    console.log(this.route.snapshot.fragment);
-    this.route.queryParams.subscribe();
-    this.route.fragment.subscribe();
-    this.document = this.sto004Service.getDocument(1);
+    this.allowEdit = !!+this.route.snapshot.queryParams.allowEdit;
+    this.route.queryParams.subscribe(queryParams => {
+      this.allowEdit = !!+queryParams.allowEdit;
+    });
+    this.document = this.sto004Service.getDocument(+this.route.snapshot.params.id);
     this.documentName = this.document.name;
     this.documentStatus = this.document.status;
+    this.route.params.subscribe(params => {
+      this.document = this.sto004Service.getDocument(+params.id);
+      this.documentName = this.document.name;
+      this.documentStatus = this.documentStatus;
+    });
   }
 
   onUpdateDocument() {

@@ -1,4 +1,5 @@
-<div class="ui form">
+<h3 *ngIf="!allowEdit">თქვენ არ გაქვთ უფლება შეცვალოთ მუდმივი დავალება</h3>
+<div class="ui form" *ngIf="allowEdit">
   <div class="fields">
     <div class="nine wide field">
       <label>მუდმივი დავალების სახელი</label>
