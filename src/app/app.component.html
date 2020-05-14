@@ -1,7 +1,17 @@
 <div class="ui container">
   <h1>სემინარის დავალება</h1>
   <ol>
-    <li></li>
+    <li>დაწერეთ canActivateGuard რომელიც ყველა ყველა როუტს რომელიც ლუწი სიგრძისაა გადაამისამართებს მეხუთე ელემენტზე</li>
+    <li>დაწერეთ resolver რომელიც მეხუთე კომპონენტში არსებული სერვისიდან წამოიღებს დატას და გადაცემს მეხუთე როუტს</li>
+    <li>ამოცვალეთ მეხუთე კომპონენტში არსებული სერვისიდან წამოღებული დატა როუტზე გადმოცემული დატით</li>
   </ol>
   <!-- TODO: წაშალეთ ეს კომენტარი და ამის ადგილას ჩასვით თქვენი კომპონენტები -->
+  <div class="ui menu">
+    <a routerLink="first" routerLinkActive="active" class="item">First</a>
+    <a routerLink="second" routerLinkActive="active" class="item">Second</a>
+    <a routerLink="third" routerLinkActive="active" class="item">Third</a>
+    <a routerLink="fourth" routerLinkActive="active" class="item">Fourth</a>
+    <a routerLink="fifth" routerLinkActive="active" class="item">Fifth</a>
+  </div>
+  <router-outlet></router-outlet>
 </div>
