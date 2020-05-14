@@ -14,45 +14,7 @@ import { Sto004Component } from './shell/modules/sto/sto004/sto004.component';
 import { Sto004DocComponent } from './shell/modules/sto/sto004/sto004-doc/sto004-doc.component';
 import { Sto004EditDocComponent } from './shell/modules/sto/sto004/sto004-edit-doc/sto004-edit-doc.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
-const routes: Routes = [
-  {
-    path: '',
-    component: Bpm000Component
-  },
-  {
-    path: 'krnicp',
-    component: KrnicpComponent,
-    children: [
-      {
-        path: ':id/:name',
-        component: ClientComponent
-      }
-    ]
-  },
-  {
-    path: 'sto004',
-    component: Sto004Component,
-    children: [
-      {
-        path: ':id',
-        component: Sto004DocComponent
-      },
-      {
-        path: ':id/edit',
-        component: Sto004EditDocComponent
-      }
-    ]
-  },
-  {
-    path: 'not-found',
-    component: PageNotFoundComponent
-  },
-  {
-    path: '**',
-    redirectTo: '/not-found'
-  }
-];
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -71,7 +33,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
