@@ -2,7 +2,7 @@
   <div class="ui attached vertical menu">
     <a
       class="item"
-      [routerLink]="['/sto004', 5, 'edit']"
+      [routerLink]="['/sto004', document.id]"
       [queryParams]="{ allowEdit: '1' }"
       fragment="loading"
       *ngFor="let document of documents">{{ document.name }}</a>
@@ -11,6 +11,6 @@
     <button class="ui blue button" (click)="onReload()">გადატვირთვა</button>
     <bg-sto004-edit-doc></bg-sto004-edit-doc>
     <hr>
-    <bg-sto004-doc></bg-sto004-doc>
+    <!-- <bg-sto004-doc></bg-sto004-doc> -->
   </div>
 </div>

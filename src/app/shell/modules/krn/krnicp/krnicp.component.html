@@ -1,6 +1,6 @@
 <div class="ui horizontal segments">
   <div class="ui attached vertical menu">
-    <a href="#" class="item" *ngFor="let client of clients">{{ client.name }}</a>
+    <a [routerLink]="['/krnicp', client.id, client.name]" class="item" *ngFor="let client of clients">{{ client.name }}</a>
   </div>
   <div class="ui segment">
     <bg-client></bg-client>

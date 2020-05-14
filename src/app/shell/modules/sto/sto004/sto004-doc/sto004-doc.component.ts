@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Sto004Service } from '../sto004.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'bg-sto004-doc',
@@ -9,10 +10,13 @@ import { Sto004Service } from '../sto004.service';
 export class Sto004DocComponent implements OnInit {
   document = { name: 'some name', status: 'some status' };
 
-  constructor(private sto004Service: Sto004Service) { }
+  constructor(private sto004Service: Sto004Service, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.document = this.sto004Service.getDocument(1);
+    this.document = this.sto004Service.getDocument(+this.route.snapshot.params.id);
+    this.route.params.subscribe(params => {
+      this.document = this.sto004Service.getDocument(+params.id);
+    });
   }
 
 }
