@@ -9,6 +9,7 @@ import { Sto004DocComponent } from './shell/modules/sto/sto004/sto004-doc/sto004
 import { Sto004EditDocComponent } from './shell/modules/sto/sto004/sto004-edit-doc/sto004-edit-doc.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuard } from './auth-guard.service';
+import { CanDeactivateGuard } from './shell/modules/sto/sto004/sto004-edit-doc/can-deactivate-guard.service';
 
 const routes: Routes = [
   {
@@ -37,7 +38,8 @@ const routes: Routes = [
       },
       {
         path: ':id/edit',
-        component: Sto004EditDocComponent
+        component: Sto004EditDocComponent,
+        canDeactivate: [CanDeactivateGuard]
       }
     ]
   },
