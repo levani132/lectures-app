@@ -8,6 +8,7 @@ import { Sto004Component } from './shell/modules/sto/sto004/sto004.component';
 import { Sto004DocComponent } from './shell/modules/sto/sto004/sto004-doc/sto004-doc.component';
 import { Sto004EditDocComponent } from './shell/modules/sto/sto004/sto004-edit-doc/sto004-edit-doc.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuard } from './auth-guard.service';
 
 const routes: Routes = [
   {
@@ -27,6 +28,7 @@ const routes: Routes = [
   {
     path: 'sto004',
     component: Sto004Component,
+    canActivate: [AuthGuard],
     children: [
       {
         path: ':id',
