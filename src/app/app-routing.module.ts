@@ -5,27 +5,37 @@ import { SecondComponent } from './second/second.component';
 import { ThirdComponent } from './third/third.component';
 import { FourthComponent } from './fourth/fourth.component';
 import { FifthComponent } from './fifth/fifth.component';
+import { EvenGuard } from './even-guard.service';
+import { FifthResolver } from './fifth/fifth-resolver.service';
 
 const routes: Routes = [
   {
     path: 'first',
-    component: FirstComponent
+    component: FirstComponent,
+    canActivate: [EvenGuard]
   },
   {
     path: 'second',
-    component: SecondComponent
+    component: SecondComponent,
+    canActivate: [EvenGuard]
   },
   {
     path: 'third',
-    component: ThirdComponent
+    component: ThirdComponent,
+    canActivate: [EvenGuard]
   },
   {
     path: 'fourth',
-    component: FourthComponent
+    component: FourthComponent,
+    canActivate: [EvenGuard]
   },
   {
     path: 'fifth',
-    component: FifthComponent
+    component: FifthComponent,
+    canActivate: [EvenGuard],
+    resolve: {
+      people: FifthResolver
+    }
   },
   {
     path: '**',
