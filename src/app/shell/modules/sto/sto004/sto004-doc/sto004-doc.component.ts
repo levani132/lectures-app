@@ -13,9 +13,9 @@ export class Sto004DocComponent implements OnInit {
   constructor(private sto004Service: Sto004Service, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    this.document = this.sto004Service.getDocument(+this.route.snapshot.params.id);
-    this.route.params.subscribe(params => {
-      this.document = this.sto004Service.getDocument(+params.id);
+    this.document = this.route.snapshot.data.document;
+    this.route.data.subscribe(({ document }) => {
+      this.document = document;
     });
   }
 

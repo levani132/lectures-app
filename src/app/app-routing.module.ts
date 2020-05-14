@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthGuard } from './auth-guard.service';
 import { CanDeactivateGuard } from './shell/modules/sto/sto004/sto004-edit-doc/can-deactivate-guard.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { DocumentResolver } from './shell/modules/sto/sto004/sto004-doc/document-resolver.service';
 
 const routes: Routes = [
   {
@@ -35,7 +36,10 @@ const routes: Routes = [
     children: [
       {
         path: ':id',
-        component: Sto004DocComponent
+        component: Sto004DocComponent,
+        resolve: {
+          document: DocumentResolver
+        }
       },
       {
         path: ':id/edit',

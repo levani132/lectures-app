@@ -19,6 +19,7 @@ import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { CanDeactivateGuard } from './shell/modules/sto/sto004/sto004-edit-doc/can-deactivate-guard.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { DocumentResolver } from './shell/modules/sto/sto004/sto004-doc/document-resolver.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [AuthGuard, AuthService, CanDeactivateGuard],
+  providers: [AuthGuard, AuthService, CanDeactivateGuard, DocumentResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
