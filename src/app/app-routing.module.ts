@@ -28,7 +28,8 @@ const routes: Routes = [
   {
     path: 'sto004',
     component: Sto004Component,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     children: [
       {
         path: ':id',
