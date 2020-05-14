@@ -18,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { CanDeactivateGuard } from './shell/modules/sto/sto004/sto004-edit-doc/can-deactivate-guard.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CanDeactivateGuard } from './shell/modules/sto/sto004/sto004-edit-doc/c
     Sto004Component,
     Sto004DocComponent,
     Sto004EditDocComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
