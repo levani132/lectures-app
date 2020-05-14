@@ -3,6 +3,6 @@
     <a [routerLink]="['/krnicp', client.id, client.name]" class="item" *ngFor="let client of clients">{{ client.name }}</a>
   </div>
   <div class="ui segment">
-    <bg-client></bg-client>
+    <router-outlet></router-outlet>
   </div>
 </div>

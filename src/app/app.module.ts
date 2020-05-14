@@ -21,23 +21,27 @@ const routes: Routes = [
   },
   {
     path: 'krnicp',
-    component: KrnicpComponent
-  },
-  {
-    path: 'krnicp/:id/:name',
-    component: ClientComponent
+    component: KrnicpComponent,
+    children: [
+      {
+        path: ':id/:name',
+        component: ClientComponent
+      }
+    ]
   },
   {
     path: 'sto004',
-    component: Sto004Component
-  },
-  {
-    path: 'sto004/:id',
-    component: Sto004DocComponent
-  },
-  {
-    path: 'sto004/:id/edit',
-    component: Sto004EditDocComponent
+    component: Sto004Component,
+    children: [
+      {
+        path: ':id',
+        component: Sto004DocComponent
+      },
+      {
+        path: ':id/edit',
+        component: Sto004EditDocComponent
+      }
+    ]
   }
 ];
 
