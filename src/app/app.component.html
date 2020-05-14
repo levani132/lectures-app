@@ -7,8 +7,8 @@
     <li>დაამატეთ მთვლელში ერთი ღილაკი და ერთი რიცხვი რომელიც ამ ღილაკზე დაჭერისას გაიზრდება (თუ შეძლებთ ეს queryParams-ის საშუალებით გააკეთეთ)</li>
   </ol>
   <div class="ui menu">
-    <a class="item active">მთავარი</a>
-    <a class="item">მთვლელი</a>
+    <a class="item" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">მთავარი</a>
+    <a class="item" routerLink="counter" routerLinkActive="active">მთვლელი</a>
   </div>
-  <!-- TODO: წაშალეთ ეს კომენტარი და ამის ადგილას ჩასვით თქვენი კომპონენტები -->
+  <router-outlet></router-outlet>
 </div>
