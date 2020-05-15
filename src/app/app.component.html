@@ -4,12 +4,18 @@
       <div class="nine wide field">
         <label for="username">მომხმარებლის სახელი</label>
         <input type="text" id="username" formControlName="username">
+        <p *ngIf="signupForm.get('username').invalid && signupForm.get('username').touched">
+          გთხოვთ შეიყვანოთ მომხმარებლის სახელი!
+        </p>
       </div>
     </div>
     <div class="fields">
       <div class="nine wide field">
         <label for="email">მეილი</label>
         <input type="text" id="email" formControlName="email">
+        <p *ngIf="signupForm.get('email').invalid && signupForm.get('email').touched">
+          გთხოვთ შეიყვანოთ სწორი მეილი!
+        </p>
       </div>
     </div>
     <div class="fields">
@@ -20,6 +26,9 @@
         </div>
       </div>
     </div>
+    <p *ngIf="signupForm.invalid && signupForm.touched">
+      გთხოვთ შეიყვანოთ სწორი მონაცემები!
+    </p>
     <button class="ui orange button" type="submit">შენახვა</button>
   </form>
 </div>
