@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'bg-root',
@@ -20,8 +20,8 @@ export class AppComponent implements OnInit {
 
   initForm() {
     this.signupForm = new FormGroup({
-      username: new FormControl(undefined),
-      email: new FormControl(undefined),
+      username: new FormControl(undefined, Validators.required),
+      email: new FormControl(undefined, [Validators.required, Validators.email]),
       gender: new FormControl('კაცი')
     });
   }
