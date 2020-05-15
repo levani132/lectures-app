@@ -29,10 +29,16 @@
     <div class="fields">
       <div class="nine wide field">
         <label for="pet">საიდუმლო კითხვა</label>
-        <select id="secret" name="secret" ngModel>
+        <select id="secret" name="secret" [ngModel]="defaultQuestion">
           <option value="pet">შენი პირველი ცხოველი?</option>
           <option value="teacher">შენი პირველი მასწავლებელი?</option>
         </select>
+      </div>
+    </div>
+    <div class="fields">
+      <div class="nine wide field">
+        <textarea name="answer" rows="3" [(ngModel)]="answer"></textarea>
+        <p>შენი პასუხია: {{ answer }}</p>
       </div>
     </div>
     <button
