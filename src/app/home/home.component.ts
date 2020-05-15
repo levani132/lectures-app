@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription, Observable } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'bg-home',
@@ -26,6 +27,14 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
 
     this.subscription = ourInterval(1000)
+      .pipe(
+        filter(data => {
+          return !(data % 2);
+        }),
+        map(data => {
+          return 'Round: ' + data;
+        })
+      )
       .subscribe(count => {
         console.log(count);
       }, e => {
