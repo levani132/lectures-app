@@ -17,6 +17,19 @@ export class AppComponent implements OnInit {
     this.initForm();
     this.signupForm.valueChanges.subscribe(console.log);
     this.signupForm.statusChanges.subscribe(console.log);
+    this.signupForm.setValue({
+      userData: {
+        username: 'levani',
+        email: 'levanberoshvili@bog.ge'
+      },
+      gender: 'male',
+      hobbies: []
+    });
+    this.signupForm.patchValue({
+      userData: {
+        username: 'levani132'
+      }
+    });
   }
 
   onAddHobby() {
@@ -25,6 +38,7 @@ export class AppComponent implements OnInit {
 
   onSubmit() {
     console.log(this.signupForm);
+    this.signupForm.reset();
   }
 
   getHobbiesControls() {
