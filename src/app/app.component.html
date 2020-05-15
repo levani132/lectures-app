@@ -1,31 +1,35 @@
 <div class="ui container">
   <form class="ui form" (ngSubmit)="onSubmit(form)" #form="ngForm">
-    <div class="fields">
-      <div class="nine wide field">
-        <label for="username">მომხმარებლის სახელი</label>
-        <input
-          ngModel
-          type="text"
-          id="username"
-          name="username"
-          required>
+    <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
+
+      <div class="fields">
+        <div class="nine wide field">
+          <label for="username">მომხმარებლის სახელი</label>
+          <input
+            ngModel
+            type="text"
+            id="username"
+            name="username"
+            required>
+        </div>
+      </div>
+      <button class="ui basic orange button" type="button">მირჩიე სახელი</button>
+      <div class="fields">
+        <div class="nine wide field">
+          <label for="email">მეილი</label>
+          <input
+            ngModel
+            type="email"
+            id="email"
+            name="email"
+            required
+            email
+            #email="ngModel">
+          <p *ngIf="email.invalid && email.touched">გთხოვ შეიყვანო სწორი მეილი</p>
+        </div>
       </div>
     </div>
-    <button class="ui basic orange button" type="button">მირჩიე სახელი</button>
-    <div class="fields">
-      <div class="nine wide field">
-        <label for="email">მეილი</label>
-        <input
-          ngModel
-          type="email"
-          id="email"
-          name="email"
-          required
-          email
-          #email="ngModel">
-        <p *ngIf="email.invalid && email.touched">გთხოვ შეიყვანო სწორი მეილი</p>
-      </div>
-    </div>
+    <p *ngIf="userData.invalid && userData.touched">მომხმარებლის ინფორმაცია არასწორია</p>
     <div class="fields">
       <div class="nine wide field">
         <label for="pet">საიდუმლო კითხვა</label>
