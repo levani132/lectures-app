@@ -1,3 +1,8 @@
 <div class="ui container">
-
+  <div class="ui menu">
+    <a class="item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/">მთავარი</a>
+    <a class="item" routerLinkActive="active" routerLink="/user/1">მომხმარებელი 1</a>
+    <a class="item" routerLinkActive="active" routerLink="/user/2">მომხმარებელი 2</a>
+  </div>
+  <router-outlet></router-outlet>
 </div>
