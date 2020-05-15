@@ -1,22 +1,22 @@
 <div class="ui container">
-  <form class="ui form">
+  <form class="ui form" (ngSubmit)="onSubmit(form)" #form="ngForm">
     <div class="fields">
       <div class="nine wide field">
         <label for="username">მომხმარებლის სახელი</label>
-        <input type="text" id="username">
+        <input type="text" id="username" name="username" ngModel>
       </div>
     </div>
     <button class="ui basic orange button" type="button">მირჩიე სახელი</button>
     <div class="fields">
       <div class="nine wide field">
         <label for="email">მეილი</label>
-        <input type="email" id="email">
+        <input type="email" id="email" name="email" ngModel>
       </div>
     </div>
     <div class="fields">
       <div class="nine wide field">
         <label for="pet">საიდუმლო კითხვა</label>
-        <select id="secret">
+        <select id="secret" name="secret" ngModel>
           <option value="pet">შენი პირველი ცხოველი?</option>
           <option value="teacher">შენი პირველი მასწავლებელი?</option>
         </select>
