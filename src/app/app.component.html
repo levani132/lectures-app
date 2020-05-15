@@ -6,12 +6,15 @@
           <label for="username">მომხმარებლის სახელი</label>
           <input type="text" id="username" formControlName="username">
           <p *ngIf="get('userData.username').invalid && get('userData.username').touched">
-            <span *ngIf="get('userData.username').errors.required">
+            <!-- <span *ngIf="get('userData.username').errors.required">
               გთხოვთ შეიყვანოთ მომხმარებლის სახელი!
             </span>
             <span *ngIf="get('userData.username').errors.nameIsForbidden">
               ამ სახელის გამოყენება აკრძალულია
-            </span>
+            </span> -->
+            <ng-container *ngFor="let errorMessage of errors('userData.username')">
+              <span *ngIf="errorMessage !== true">{{ errorMessage }}</span>
+            </ng-container>
           </p>
         </div>
       </div>

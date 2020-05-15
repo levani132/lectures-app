@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, AbstractControl, FormArray } from '@angular/forms';
+import { FormGroup, FormControl, AbstractControl, FormArray } from '@angular/forms';
+
+import { BGValidators } from './bg-validators';
 
 @Component({
   selector: 'bg-root',
@@ -16,7 +18,7 @@ export class AppComponent implements OnInit {
   }
 
   onAddHobby() {
-    (this.get('hobbies') as FormArray).push(new FormControl(undefined, Validators.required));
+    (this.get('hobbies') as FormArray).push(new FormControl(undefined, BGValidators.required));
   }
 
   onSubmit() {
@@ -29,8 +31,12 @@ export class AppComponent implements OnInit {
 
   forbiddenNamesValidator(control: FormControl): { [key: string]: any } {
     if (this.forbiddenNames.includes(control.value)) {
-      return { nameIsForbidden: true };
+      return { nameIsForbidden: 'ამ სახელის გამოყენება აკრძალულია' };
     }
+  }
+
+  errors(controlName: string | (string | number)[]) {
+    return Object.values(this.get(controlName).errors);
   }
 
   get(controlName: string | (string | number)[]): AbstractControl {
@@ -40,8 +46,8 @@ export class AppComponent implements OnInit {
   initForm() {
     this.signupForm = new FormGroup({
       userData: new FormGroup({
-        username: new FormControl(undefined, [Validators.required, this.forbiddenNamesValidator.bind(this)]),
-        email: new FormControl(undefined, [Validators.required, Validators.email])
+        username: new FormControl(undefined, [BGValidators.required, this.forbiddenNamesValidator.bind(this)]),
+        email: new FormControl(undefined, [BGValidators.required, BGValidators.email])
       }),
       gender: new FormControl('კაცი'),
       hobbies: new FormArray([])
