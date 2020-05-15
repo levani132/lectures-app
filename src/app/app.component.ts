@@ -14,6 +14,10 @@ export class AppComponent implements OnInit {
     this.initForm();
   }
 
+  onSubmit() {
+    console.log(this.signupForm);
+  }
+
   initForm() {
     this.signupForm = new FormGroup({
       username: new FormControl(undefined),

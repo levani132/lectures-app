@@ -1,21 +1,21 @@
 <div class="ui container">
-  <form class="ui form">
+  <form class="ui form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
     <div class="fields">
       <div class="nine wide field">
         <label for="username">მომხმარებლის სახელი</label>
-        <input type="text" id="username">
+        <input type="text" id="username" formControlName="username">
       </div>
     </div>
     <div class="fields">
       <div class="nine wide field">
         <label for="email">მეილი</label>
-        <input type="text" id="email">
+        <input type="text" id="email" formControlName="email">
       </div>
     </div>
     <div class="fields">
       <div class="field" *ngFor="let gender of genders">
         <div class="ui radio checkbox">
-          <input type="radio" [value]="gender">
+          <input type="radio" [value]="gender" formControlName="gender">
           <label>{{ gender }}</label>
         </div>
       </div>
