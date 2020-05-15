@@ -58,4 +58,12 @@
       type="submit"
       [disabled]="form.invalid">შენახვა</button>
   </form>
+  <div class="ui segment" *ngIf="submitted">
+    <h3>შედეგი</h3>
+    <p>მომხმარებლის სახელი: {{ user.userData.username }}</p>
+    <p>მეილი: {{ user.userData.email }}</p>
+    <p>საიდუმლო კითხვა: {{ user.secret }}</p>
+    <p>პასუხი: {{ user.answer }}</p>
+    <p>სქესი: {{ user.gender }}</p>
+  </div>
 </div>
