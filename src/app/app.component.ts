@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'bg-root',
@@ -16,6 +16,10 @@ export class AppComponent implements OnInit {
 
   onSubmit() {
     console.log(this.signupForm);
+  }
+
+  get(controlName: string | (string | number)[]): AbstractControl {
+    return this.signupForm.get(controlName);
   }
 
   initForm() {
