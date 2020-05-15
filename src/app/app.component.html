@@ -14,4 +14,35 @@
     <li>submit ღილაკზე დაჭერისას კონსოლში დალოგეთ ფორმის მნისვნელობა.</li>
   </ol>
   <!-- TODO: წაშალეთ ეს კომენტარი და ამის ადგილას ჩასვით თქვენი კომპონენტები -->
+  <form class="ui form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <div class="fields">
+      <div class="nine wide field">
+        <label>პროექტის სახელი</label>
+        <input type="text" formControlName="projectName">
+      </div>
+    </div>
+    <ng-container *ngIf="get('projectName').touched">
+      <p *ngFor="let error of errors('projectName')">{{ error }}</p>
+    </ng-container>
+    <div class="fields">
+      <div class="nine wide field">
+        <label>პროექტის სახელი</label>
+        <input type="email" formControlName="email">
+      </div>
+    </div>
+    <ng-container *ngIf="get('email').touched">
+      <p *ngFor="let error of errors('email')">{{ error }}</p>
+    </ng-container>
+    <div class="fields">
+      <div class="nine wide field">
+        <label>პროექტის სტატუსი</label>
+        <select formControlName="projectStatus">
+          <option value="სტაბილური">სტაბილური</option>
+          <option value="კრიტიკული">კრიტიკული</option>
+          <option value="დასრულებული">დასრულებული</option>
+        </select>
+      </div>
+    </div>
+    <button class="ui button" type="submit">შენახვა</button>
+  </form>
 </div>
