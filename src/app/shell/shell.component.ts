@@ -15,6 +15,7 @@ export class ShellComponent implements OnInit {
   }
 
   onEndSeminar() {
+    this.seminarService.subj.next(true);
   }
 
 }

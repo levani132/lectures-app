@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { SeminarService } from './seminar.service';
-import { Observable, Observer } from 'rxjs';
+import { Observable, Observer, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -9,8 +9,9 @@ import { map } from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   showCongratulations = false;
+  subscription: Subscription;
 
   constructor(private seminarService: SeminarService) {}
 
@@ -30,5 +31,15 @@ export class AppComponent implements OnInit {
       .subscribe(value => {
         console.log(value);
       });
+
+    this.subscription = this.seminarService.subj.subscribe(value => {
+      this.showCongratulations = value;
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }
