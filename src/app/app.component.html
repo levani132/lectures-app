@@ -4,5 +4,7 @@
     <a class="item" routerLinkActive="active" routerLink="/user/1">მომხმარებელი 1</a>
     <a class="item" routerLinkActive="active" routerLink="/user/2">მომხმარებელი 2</a>
   </div>
+  <p>მომხმარებელი {{ activated ? 'აქტიურია' : 'არ არის აქტიური' }}</p>
+  <hr>
   <router-outlet></router-outlet>
 </div>
