@@ -45,6 +45,14 @@
         <p>შენი პასუხია: {{ answer }}</p>
       </div>
     </div>
+    <div class="fields">
+      <div class="field" *ngFor="let gender of genders">
+        <div class="ui radio checkbox">
+          <input type="radio" name="gender" [value]="gender" ngModel>
+          <label>{{ gender }}</label>
+        </div>
+      </div>
+    </div>
     <button
       class="ui orange button"
       type="submit"
