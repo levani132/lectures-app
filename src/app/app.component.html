@@ -28,6 +28,15 @@
         </div>
       </div>
     </div>
+    <div formArrayName="hobbies">
+      <h4>შენი ჰობები</h4>
+      <button class="ui button" type="button" (click)="onAddHobby()">დამატება</button>
+      <div class="fields" *ngFor="let hobbyControl of getHobbiesControls(); let i = index;">
+        <div class="nine wide field">
+          <input type="text" [formControlName]="i">
+        </div>
+      </div>
+    </div>
     <p *ngIf="signupForm.invalid && signupForm.touched">
       გთხოვთ შეიყვანოთ სწორი მონაცემები!
     </p>

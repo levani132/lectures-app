@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'bg-root',
@@ -14,8 +14,16 @@ export class AppComponent implements OnInit {
     this.initForm();
   }
 
+  onAddHobby() {
+    (this.get('hobbies') as FormArray).push(new FormControl(undefined, Validators.required));
+  }
+
   onSubmit() {
     console.log(this.signupForm);
+  }
+
+  getHobbiesControls() {
+    return (this.signupForm.get('hobbies') as FormArray).controls;
   }
 
   get(controlName: string | (string | number)[]): AbstractControl {
@@ -28,7 +36,8 @@ export class AppComponent implements OnInit {
         username: new FormControl(undefined, Validators.required),
         email: new FormControl(undefined, [Validators.required, Validators.email])
       }),
-      gender: new FormControl('კაცი')
+      gender: new FormControl('კაცი'),
+      hobbies: new FormArray([])
     });
   }
 }
