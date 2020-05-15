@@ -20,8 +20,10 @@ export class AppComponent implements OnInit {
 
   initForm() {
     this.signupForm = new FormGroup({
-      username: new FormControl(undefined, Validators.required),
-      email: new FormControl(undefined, [Validators.required, Validators.email]),
+      userData: new FormGroup({
+        username: new FormControl(undefined, Validators.required),
+        email: new FormControl(undefined, [Validators.required, Validators.email])
+      }),
       gender: new FormControl('კაცი')
     });
   }
