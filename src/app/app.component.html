@@ -3,14 +3,27 @@
     <div class="fields">
       <div class="nine wide field">
         <label for="username">მომხმარებლის სახელი</label>
-        <input type="text" id="username" name="username" ngModel>
+        <input
+          ngModel
+          type="text"
+          id="username"
+          name="username"
+          required>
       </div>
     </div>
     <button class="ui basic orange button" type="button">მირჩიე სახელი</button>
     <div class="fields">
       <div class="nine wide field">
         <label for="email">მეილი</label>
-        <input type="email" id="email" name="email" ngModel>
+        <input
+          ngModel
+          type="email"
+          id="email"
+          name="email"
+          required
+          email
+          #email="ngModel">
+        <p *ngIf="email.invalid && email.touched">გთხოვ შეიყვანო სწორი მეილი</p>
       </div>
     </div>
     <div class="fields">
@@ -22,6 +35,9 @@
         </select>
       </div>
     </div>
-    <button class="ui orange button" type="submit">შენახვა</button>
+    <button
+      class="ui orange button"
+      type="submit"
+      [disabled]="form.invalid">შენახვა</button>
   </form>
 </div>
