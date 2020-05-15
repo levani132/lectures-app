@@ -15,6 +15,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
+    this.signupForm.valueChanges.subscribe(console.log);
+    this.signupForm.statusChanges.subscribe(console.log);
   }
 
   onAddHobby() {
