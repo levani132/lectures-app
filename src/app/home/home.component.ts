@@ -16,12 +16,23 @@ export class HomeComponent implements OnInit, OnDestroy {
       let counter = 0;
       setInterval(() => {
         observer.next(counter++);
+        if (counter > 2) {
+          observer.complete();
+        }
+        if (counter > 3) {
+          observer.error(new Error('Counter can\'t be more than 3'));
+        }
       }, num);
     });
 
-    this.subscription = ourInterval(1000).subscribe(count => {
-      console.log(count);
-    });
+    this.subscription = ourInterval(1000)
+      .subscribe(count => {
+        console.log(count);
+      }, e => {
+        console.log(e);
+      }, () => {
+        console.log('completed');
+      });
 
     // this.subscription = interval(1000).subscribe(count => {
     //   console.log(count);
