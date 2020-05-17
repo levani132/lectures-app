@@ -11,4 +11,9 @@
     <li>ასევე კარგი იქნება თუ გასტილავთ odd და even ელემენტებს</li>
   </ol>
   <!-- TODO: წაშალეთ ეს კომენტარი და ამის ადგილას ჩასვით თქვენი კომპონენტები -->
+  <bg-game-control (numIncrease)="onNumberAdded($event)"></bg-game-control>
+  <div *ngFor="let num of numbers">
+    <bg-odd *ngIf="num % 2">{{ num }}</bg-odd>
+    <bg-even *ngIf="!(num % 2)">{{ num }}</bg-even>
+  </div>
 </div>
