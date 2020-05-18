@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit, OnDestroy {
   showCongratulations = false;
-  subscription: Subscription;
+  subscriptions: Subscription[];
 
   constructor(private seminarService: SeminarService) {}
 
@@ -32,14 +32,12 @@ export class AppComponent implements OnInit, OnDestroy {
         console.log(value);
       });
 
-    this.subscription = this.seminarService.subj.subscribe(value => {
+    this.subscriptions.push(this.seminarService.subj.subscribe(value => {
       this.showCongratulations = value;
-    });
+    }));
   }
 
   ngOnDestroy() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 }
