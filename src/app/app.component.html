@@ -1,7 +1,7 @@
 <div class="ui container">
   <div class="ui segments">
     <div class="ui segment" *ngFor="let account of accounts">
-      {{ account.owner }} |
+      {{ account.owner | shorten:7 }} |
       {{ account.status | uppercase }} |
       {{ account.createdAt | date:'fullDate' | uppercase }}
     </div>
