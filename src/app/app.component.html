@@ -11,6 +11,9 @@
       </div>
     </div>
   </div>
+  <button class="ui button" (click)="addAccount()">
+    ანგარიშის დამატება
+  </button>
   <div class="ui segments">
     <div class="ui segment" *ngFor="let account of shouldFilter ? (accounts | filter:filterText:'owner') : accounts">
       {{ account.owner | shorten:7 }} |

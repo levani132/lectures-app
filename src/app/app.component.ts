@@ -30,4 +30,12 @@ export class AppComponent {
       createdAt: new Date(2019, 5, 12)
     }
   ];
+
+  addAccount() {
+    this.accounts.push({
+      owner: 'გიორგი კილტავა',
+      status: 'Active',
+      createdAt: new Date(2019, 5, 12)
+    });
+  }
 }
