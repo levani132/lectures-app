@@ -7,4 +7,26 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'lectures-app';
+  accounts = [
+    {
+      owner: 'ლევან ბეროშვილი',
+      status: 'Pending',
+      createdAt: new Date(2019, 5, 12)
+    },
+    {
+      owner: 'მარიამ ავალიანი',
+      status: 'Active',
+      createdAt: new Date(2019, 5, 12)
+    },
+    {
+      owner: 'დიმიტრი ბედინაძე',
+      status: 'Inactive',
+      createdAt: new Date(2019, 5, 12)
+    },
+    {
+      owner: 'გიორგი კილტავა',
+      status: 'Active',
+      createdAt: new Date(2019, 5, 12)
+    }
+  ];
 }

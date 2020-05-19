@@ -1,3 +1,9 @@
 <div class="ui container">
-
+  <div class="ui segments">
+    <div class="ui segment" *ngFor="let account of accounts">
+      {{ account.owner }} |
+      {{ account.status }} |
+      {{ account.createdAt }}
+    </div>
+  </div>
 </div>
