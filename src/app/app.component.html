@@ -1,6 +1,18 @@
 <div class="ui container">
+  <div class="ui form">
+    <div class="field">
+      <label>ფილტრი</label>
+      <input type="text" [(ngModel)]="filterText">
+    </div>
+    <div class="field">
+      <div class="ui checkbox">
+        <input type="checkbox" [(ngModel)]="shouldFilter">
+        <label>გაფილტროს?</label>
+      </div>
+    </div>
+  </div>
   <div class="ui segments">
-    <div class="ui segment" *ngFor="let account of accounts">
+    <div class="ui segment" *ngFor="let account of shouldFilter ? (accounts | filter:filterText:'owner') : accounts">
       {{ account.owner | shorten:7 }} |
       {{ account.status | uppercase }} |
       {{ account.createdAt | date:'fullDate' | uppercase }}
