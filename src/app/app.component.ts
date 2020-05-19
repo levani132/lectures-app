@@ -6,6 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  appStatus = new Promise(resolve => {
+    setTimeout(() => resolve('აქტიური'), 2000);
+  });
   filterText = '';
   shouldFilter = true;
   accounts = [
