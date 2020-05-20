@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import { Validators } from './validators';
 import { Post } from './post.model';
@@ -14,6 +15,7 @@ import { Post } from './post.model';
 export class AppComponent implements OnInit {
   form: FormGroup;
   posts = [];
+  isLoading = false;
 
   constructor(private http: HttpClient) {}
 
@@ -39,9 +41,20 @@ export class AppComponent implements OnInit {
     // Send Http request
   }
 
+  loader<T>(observable: Observable<T>): Observable<T> {
+    this.isLoading = true;
+    return new Observable<T>(observer => {
+      observable.subscribe(data => {
+        this.isLoading = false;
+        observer.next(data);
+      });
+    });
+  }
+
   private fetchPosts() {
     return this.http.get<Post[]>('https://bog-angular-course-api.herokuapp.com/lectures-api/posts')
       .pipe(
+        obs => this.loader(obs),
         map((data) => {
           data.forEach(item => {
             item.validated = true;
@@ -50,7 +63,7 @@ export class AppComponent implements OnInit {
         })
       )
       .subscribe(posts => {
-        console.log(posts);
+        this.posts = posts;
       });
   }
 
