@@ -21,9 +21,9 @@
     ანგარიშის დამატება
   </button>
   <div class="ui segments">
-    <div class="ui segment" *ngFor="let account of shouldFilter ? (accounts | filter:filterText:'owner') : accounts">
+    <div class="ui segment" *ngFor="let account of (shouldFilter ? (accounts | filter:filterText:'owner') : accounts) | sort">
       {{ account.owner | shorten:7 }} |
-      {{ account.status | uppercase }} |
+      {{ account.status | reverse | uppercase }} |
       {{ account.createdAt | date:'fullDate' | uppercase }}
     </div>
   </div>
