@@ -30,8 +30,6 @@ export class PostsService {
           });
           return data;
         })
-      )
-      .subscribe(posts => {
-      });
+      );
   }
 }

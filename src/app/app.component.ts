@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
-    this.postsService.fetchPosts();
+    this.fetchPosts();
   }
 
   onSavePost() {
@@ -30,7 +30,13 @@ export class AppComponent implements OnInit {
   }
 
   onFetchPosts() {
-    this.postsService.fetchPosts();
+    this.fetchPosts();
+  }
+
+  fetchPosts() {
+    this.postsService.fetchPosts().pipe(obs => this.loader(obs)).subscribe(posts => {
+      this.posts = posts;
+    });
   }
 
   onDeletePost(id) {
