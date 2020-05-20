@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 
 import { Validators } from './validators';
 import { Post } from './post.model';
+import { PostsService } from './posts.service';
 
 @Component({
   selector: 'bg-root',
@@ -17,24 +18,19 @@ export class AppComponent implements OnInit {
   posts = [];
   isLoading = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private postsService: PostsService) {}
 
   ngOnInit() {
     this.initForm();
-    this.fetchPosts();
+    this.postsService.fetchPosts();
   }
 
   onSavePost() {
-    this.http
-      .post<{ id: number }>('https://bog-angular-course-api.herokuapp.com/lectures-api/posts', this.form.value)
-      .subscribe(response => {
-        console.log(response);
-      });
-    // Send Http request
+    this.postsService.createPost(this.form.value.title, this.form.value.content);
   }
 
   onFetchPosts() {
-    this.fetchPosts();
+    this.postsService.fetchPosts();
   }
 
   onDeletePost(id) {
@@ -49,22 +45,6 @@ export class AppComponent implements OnInit {
         observer.next(data);
       });
     });
-  }
-
-  private fetchPosts() {
-    return this.http.get<Post[]>('https://bog-angular-course-api.herokuapp.com/lectures-api/posts')
-      .pipe(
-        obs => this.loader(obs),
-        map((data) => {
-          data.forEach(item => {
-            item.validated = true;
-          });
-          return data;
-        })
-      )
-      .subscribe(posts => {
-        this.posts = posts;
-      });
   }
 
   get(controlName) {
