@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Validators } from './validators';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+
+import { Validators } from './validators';
+import { Post } from './post.model';
 
 @Component({
   selector: 'bg-root',
@@ -16,11 +19,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
+    this.fetchPosts();
   }
 
   onSavePost() {
     this.http
-      .post('https://bog-angular-course-api.herokuapp.com/lectures-api/posts', this.form.value)
+      .post<{ id: number }>('https://bog-angular-course-api.herokuapp.com/lectures-api/posts', this.form.value)
       .subscribe(response => {
         console.log(response);
       });
@@ -28,10 +32,26 @@ export class AppComponent implements OnInit {
   }
 
   onFetchPosts() {
+    this.fetchPosts();
   }
 
   onDeletePost(id) {
     // Send Http request
+  }
+
+  private fetchPosts() {
+    return this.http.get<Post[]>('https://bog-angular-course-api.herokuapp.com/lectures-api/posts')
+      .pipe(
+        map((data) => {
+          data.forEach(item => {
+            item.validated = true;
+          });
+          return data;
+        })
+      )
+      .subscribe(posts => {
+        console.log(posts);
+      });
   }
 
   get(controlName) {
