@@ -1,11 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 import { Validators } from './validators';
-import { Post } from './post.model';
 import { PostsService } from './posts.service';
 
 @Component({
@@ -13,17 +11,26 @@ import { PostsService } from './posts.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   form: FormGroup;
   posts = [];
   isLoading = false;
   error;
+  errorSubscription: Subscription;
 
   constructor(private http: HttpClient, private postsService: PostsService) {}
 
   ngOnInit() {
     this.initForm();
     this.fetchPosts();
+
+    this.errorSubscription = this.postsService.error.subscribe(err => {
+      this.error = err;
+    });
+  }
+
+  ngOnDestroy() {
+    this.errorSubscription.unsubscribe();
   }
 
   onSavePost() {

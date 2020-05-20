@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Post } from './post.model';
 import { map } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+
+import { Post } from './post.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostsService {
+  error = new Subject<string>();
 
   constructor(private http: HttpClient) {}
 
@@ -15,9 +18,11 @@ export class PostsService {
       title, content
     };
     this.http
-      .post<{ id: number }>('https://bog-angular-course-api.herokuapp.com/lectures-api/posts', post)
+      .put<{ id: number }>('https://bog-angular-course-api.herokuapp.com/lectures-api/posts', post)
       .subscribe(response => {
         console.log(response);
+      }, error => {
+        this.error.next(error.error);
       });
   }
 
