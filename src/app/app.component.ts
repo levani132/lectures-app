@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from './validators';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'bg-root',
@@ -11,17 +12,22 @@ export class AppComponent implements OnInit {
   form: FormGroup;
   posts = [];
 
+  constructor(private http: HttpClient) {}
+
   ngOnInit() {
     this.initForm();
   }
 
   onSavePost() {
-    console.log(this.form);
+    this.http
+      .post('https://bog-angular-course-api.herokuapp.com/lectures-api/posts', this.form.value)
+      .subscribe(response => {
+        console.log(response);
+      });
     // Send Http request
   }
 
   onFetchPosts() {
-    // Send Http request
   }
 
   onDeletePost(id) {
