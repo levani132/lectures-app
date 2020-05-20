@@ -32,4 +32,8 @@ export class PostsService {
         })
       );
   }
+
+  deletePost() {
+    return this.http.delete('https://bog-angular-course-api.herokuapp.com/lectures-api/posts');
+  }
 }

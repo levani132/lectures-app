@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   form: FormGroup;
   posts = [];
   isLoading = false;
+  error;
 
   constructor(private http: HttpClient, private postsService: PostsService) {}
 
@@ -40,7 +41,12 @@ export class AppComponent implements OnInit {
   }
 
   onDeletePost(id) {
-    // Send Http request
+    this.postsService.deletePost().pipe(obs => this.loader(obs)).subscribe(() => {
+      this.posts = [];
+    }, error => {
+      this.error = error.error;
+      console.log(error);
+    });
   }
 
   loader<T>(observable: Observable<T>): Observable<T> {
@@ -49,6 +55,9 @@ export class AppComponent implements OnInit {
       observable.subscribe(data => {
         this.isLoading = false;
         observer.next(data);
+      }, error => {
+        this.isLoading = false;
+        observer.error(error);
       });
     });
   }

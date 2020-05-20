@@ -19,7 +19,8 @@
   <hr>
   <button class="ui orange button" (click)="onFetchPosts()">პოსტების წამოღება</button>
   <p *ngIf="!posts.length && !isLoading">არ არის პოსტები.</p>
-  <p *ngIf="isLoading">პოსტები წამოღების პროცესშია.</p>
+  <p *ngIf="isLoading && !error">პოსტები წამოღების პროცესშია.</p>
+  <p class="error" *ngIf="error">{{ error }}</p>
   <div class="ui segments" *ngIf="posts.length && !isLoading">
     <div class="ui clearing segment" *ngFor="let post of posts">
       <h3>{{ post.title }}</h3>
