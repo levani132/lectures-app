@@ -30,7 +30,9 @@ export class PostsService {
   }
 
   fetchPosts() {
-    return this.http.get<Post[]>('https://bog-angular-course-api.herokuapp.com/lectures-api/posts')
+    return this.http.get<Post[]>('https://bog-angular-course-api.herokuapp.com/lectures-api/posts', {
+        responseType: 'json'
+      })
       .pipe(
         map((data) => {
           data.forEach(item => {
@@ -51,7 +53,8 @@ export class PostsService {
     return this.http.delete('https://bog-angular-course-api.herokuapp.com/lectures-api/posts', {
       // params: new HttpParams().set('id', id),
       params: httpParams,
-      observe: 'events'
+      observe: 'events',
+      responseType: 'text'
     }).pipe(
       tap(res => {
         console.log(res);
