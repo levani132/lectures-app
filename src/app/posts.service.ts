@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders, HttpEventType } from '@angular/common/http';
-import { map, catchError, tap } from 'rxjs/operators';
-import { Subject, throwError } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 import { Post } from './post.model';
 
@@ -18,7 +18,7 @@ export class PostsService {
       title, content
     };
     this.http
-      .post<{ id: number }>('https://bog-angular-course-api.herokuapp.com/lectures-api/posts', post, {
+      .post<{ id: number }>('posts', post, {
         headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Custom-Header': 'customHeaderValue' }),
         observe: 'response'
       })
@@ -30,14 +30,14 @@ export class PostsService {
   }
 
   fetchPosts() {
-    // TODO: Write code to fetch posts
+    return this.http.get<Post[]>('posts');
   }
 
   deletePost(id) {
     let httpParams = new HttpParams();
     httpParams = httpParams.append('id', id);
     httpParams = httpParams.append('someSecondParam', 'someSecondValue');
-    return this.http.delete('https://bog-angular-course-api.herokuapp.com/lectures-api/posts', {
+    return this.http.delete('posts', {
       // params: new HttpParams().set('id', id),
       params: httpParams,
       observe: 'events',
