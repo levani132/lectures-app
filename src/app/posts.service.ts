@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { Subject, throwError } from 'rxjs';
 
@@ -18,7 +18,9 @@ export class PostsService {
       title, content
     };
     this.http
-      .put<{ id: number }>('https://bog-angular-course-api.herokuapp.com/lectures-api/posts', post)
+      .post<{ id: number }>('https://bog-angular-course-api.herokuapp.com/lectures-api/posts', post, {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Custom-Header': 'customHeaderValue' })
+      })
       .subscribe(response => {
         console.log(response);
       }, error => {
