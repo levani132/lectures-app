@@ -48,8 +48,8 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   onDeletePost(id) {
-    this.postsService.deletePost().pipe(obs => this.loader(obs)).subscribe(() => {
-      this.posts = [];
+    this.postsService.deletePost(id).pipe(obs => this.loader(obs)).subscribe(() => {
+      this.posts = this.posts.filter(post => post.id !== id);
     }, error => {
       this.error = error.error;
       console.log(error);

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { Subject, throwError } from 'rxjs';
 
@@ -41,7 +41,13 @@ export class PostsService {
       );
   }
 
-  deletePost() {
-    return this.http.delete('https://bog-angular-course-api.herokuapp.com/lectures-api/posts');
+  deletePost(id) {
+    let httpParams = new HttpParams();
+    httpParams = httpParams.append('id', id);
+    httpParams = httpParams.append('someSecondParam', 'someSecondValue');
+    return this.http.delete('https://bog-angular-course-api.herokuapp.com/lectures-api/posts', {
+      // params: new HttpParams().set('id', id),
+      params: httpParams
+    });
   }
 }
