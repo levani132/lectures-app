@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
-import { map, catchError } from 'rxjs/operators';
+import { HttpClient, HttpParams, HttpHeaders, HttpEventType } from '@angular/common/http';
+import { map, catchError, tap } from 'rxjs/operators';
 import { Subject, throwError } from 'rxjs';
 
 import { Post } from './post.model';
@@ -19,7 +19,8 @@ export class PostsService {
     };
     this.http
       .post<{ id: number }>('https://bog-angular-course-api.herokuapp.com/lectures-api/posts', post, {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Custom-Header': 'customHeaderValue' })
+        headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Custom-Header': 'customHeaderValue' }),
+        observe: 'response'
       })
       .subscribe(response => {
         console.log(response);
@@ -49,7 +50,18 @@ export class PostsService {
     httpParams = httpParams.append('someSecondParam', 'someSecondValue');
     return this.http.delete('https://bog-angular-course-api.herokuapp.com/lectures-api/posts', {
       // params: new HttpParams().set('id', id),
-      params: httpParams
-    });
+      params: httpParams,
+      observe: 'events'
+    }).pipe(
+      tap(res => {
+        console.log(res);
+        if (res.type === HttpEventType.Sent) {
+          // ...
+        }
+        if (res.type === HttpEventType.Response) {
+          console.log(res.body);
+        }
+      })
+    );
   }
 }
