@@ -1,4 +1,13 @@
 <div class="ui container">
+  <h1>სემინარის დავალება</h1>
+  <ol>
+    <li>დაწერეთ posts.service.ts-ში GET მეთოდის გამოძახების ლოგიკა (მეთოდი უკვე აღწერილია) იგივე URL-ზე რა URL-ზეც სხვა სერვისები გადიან.</li>
+    <li>გამოიძახეთ ეს მეთოდი app.component.ts მოდულის fetchPosts მეთოდში.</li>
+    <li>გამოიყენეთ ჩვენი შექმნილი loader ოპერატორი (arrow function-ის საშუალებით) ამ სერვისის გამოძახებისას.</li>
+    <li>დაწერეთ url-interceptor.service.ts, რომელიც ყველა request-ის URL-ს მიადგამს წინ ამ ლინკს 'https://bog-angular-course-api.herokuapp.com/lectures-api/'.</li>
+    <li>დააპროვაიდეთ app.module-ში ეს სერვისი.</li>
+    <li>ამოცვალეთ სერვისში სამივე გამოძახება და დაუტოვეთ მხოლოდ endpoint-ის სახელი (ანუ https://bog-angular-course-api.herokuapp.com/lectures-api/posts -> posts).</li>
+  </ol>
   <form class="ui form" [formGroup]="form" (ngSubmit)="onSavePost()">
     <div class="nine wide field">
       <label>სათაური</label>

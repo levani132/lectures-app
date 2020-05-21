@@ -30,20 +30,7 @@ export class PostsService {
   }
 
   fetchPosts() {
-    return this.http.get<Post[]>('https://bog-angular-course-api.herokuapp.com/lectures-api/posts', {
-        responseType: 'json'
-      })
-      .pipe(
-        map((data) => {
-          data.forEach(item => {
-            item.validated = true;
-          });
-          return data;
-        }),
-        catchError((error) => {
-          return throwError(error);
-        })
-      );
+    // TODO: Write code to fetch posts
   }
 
   deletePost(id) {

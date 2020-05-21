@@ -42,9 +42,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   fetchPosts() {
-    this.postsService.fetchPosts().pipe(obs => this.loader(obs)).subscribe(posts => {
-      this.posts = posts;
-    });
+    // Fetch posts from posts service and also use this.loader operator
   }
 
   onDeletePost(id) {
