@@ -1,0 +1,22 @@
+<form class="ui form" [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+    <div class="field">
+      <label>პროექტის სახელი</label>
+      <input type="text" formControlName="name">
+    </div>
+    <div class="field">
+      <label>Email</label>
+      <input type="text" formControlName="email">
+    </div>
+    <div class="ui form">
+        <div class="grouped fields">
+          <h4>სტატუსი</h4>
+          <div class="field" *ngFor="let st of statuses">
+            <div class="ui radio checkbox">
+              <input type="radio"  [value]="st" formControlName="status">
+              <label>{{ st }}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    <button class="ui button" type="submit">დასრულება</button>
+  </form>
