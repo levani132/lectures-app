@@ -12,6 +12,8 @@ import { BpmComponent } from './shell/bpm/bpm.component';
 import { Bpm000Component } from './shell/bpm/bpm000/bpm000.component';
 import { Bpm001Component } from './shell/bpm/bpm001/bpm001.component';
 import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { AppRoutingModule } from './app-routing.module';
     ShellComponent,
     BpmComponent,
     Bpm000Component,
-    Bpm001Component
+    Bpm001Component,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

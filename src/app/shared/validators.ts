@@ -1,4 +1,4 @@
-import { Validators as NGValidators } from '@angular/forms';
+import { Validators as NGValidators, AbstractControl } from '@angular/forms';
 
 export class Validators extends NGValidators {
   static minLength(length) {
@@ -19,5 +19,15 @@ export class Validators extends NGValidators {
     return super.required(control)
       ? { required: 'ველი აუცილებელია' }
       : undefined;
+  }
+
+  static pattern(pattern: string | RegExp, patternDescription?: string) {
+    return (control: AbstractControl) => {
+      if (super.pattern(pattern)(control)) {
+        return {
+          minLength: `გთხოვთ დაიცვათ შაბლონი '${patternDescription || pattern.toString()}'`
+        };
+      }
+    };
   }
 }

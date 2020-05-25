@@ -20,3 +20,8 @@
   <div class="header">Error</div>
   {{ error }}
 </div>
+<div class="ui success message" *ngIf="success">
+  <i class="close icon" (click)="success = undefined"></i>
+  <div class="header">Error</div>
+  {{ success }}
+</div>

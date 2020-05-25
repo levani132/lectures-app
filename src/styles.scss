@@ -6,3 +6,11 @@
 html, body, h1, h2, h3, h4, h5, button {
   font-family: bpg_arial !important;
 }
+
+.error {
+  color: red;
+}
+
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
+  border: 1px solid red !important;
+}
