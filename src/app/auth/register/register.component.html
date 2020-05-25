@@ -20,7 +20,7 @@
       <p class="error" *ngFor="let error of errors('password')">{{ error }}</p>
     </ng-container>
   </div>
-  <button class="ui orange button">რეგისტრაცია</button>
+  <button class="ui orange button" type="submit">რეგისტრაცია</button>
   <a class="ui basic orange button" type="button" routerLink="/auth">შესვლა</a>
 </form>
 <div class="ui error message" *ngIf="error">

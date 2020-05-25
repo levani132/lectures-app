@@ -27,6 +27,7 @@ export class Bpm001Component implements OnInit {
     this.postsService.createPost(this.form.value.title, this.form.value.content)
       .subscribe(() => {
         this.success = 'პოსტი წარმატებით დაემატა';
+        this.form.reset();
       }, err => {
         this.error = err.error;
       });
