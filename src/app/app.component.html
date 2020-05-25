@@ -1,46 +1,10 @@
 <div class="ui container">
-  <h1>სემინარის დავალება</h1>
-  <ol>
-    <li>დაწერეთ posts.service.ts-ში GET მეთოდის გამოძახების ლოგიკა (მეთოდი უკვე აღწერილია) იგივე URL-ზე რა URL-ზეც სხვა სერვისები გადიან.</li>
-    <li>გამოიძახეთ ეს მეთოდი app.component.ts მოდულის fetchPosts მეთოდში.</li>
-    <li>გამოიყენეთ ჩვენი შექმნილი loader ოპერატორი (arrow function-ის საშუალებით) ამ სერვისის გამოძახებისას.</li>
-    <li>დაწერეთ url-interceptor.service.ts, რომელიც ყველა request-ის URL-ს მიადგამს წინ ამ ლინკს 'https://bog-angular-course-api.herokuapp.com/lectures-api/'.</li>
-    <li>დააპროვაიდეთ app.module-ში ეს სერვისი.</li>
-    <li>ამოცვალეთ სერვისში სამივე გამოძახება და დაუტოვეთ მხოლოდ endpoint-ის სახელი (ანუ https://bog-angular-course-api.herokuapp.com/lectures-api/posts -> posts).</li>
-  </ol>
-  <form class="ui form" [formGroup]="form" (ngSubmit)="onSavePost()">
-    <div class="nine wide field">
-      <label>სათაური</label>
-      <input type="text" formControlName="title">
-      <ng-container *ngIf="get('title').invalid && get('title').touched">
-        <p class="error" *ngFor="let error of errors('title')">{{ error }}</p>
-      </ng-container>
-    </div>
-    <div class="nine wide field">
-      <label>შინაარსი</label>
-      <textarea rows="3" formControlName="content"></textarea>
-      <ng-container *ngIf="get('content').invalid && get('content').touched">
-        <p class="error" *ngFor="let error of errors('content')">{{ error }}</p>
-      </ng-container>
-    </div>
-    <button class="ui orange button">შენახვა</button>
-  </form>
-  <hr>
-  <button class="ui orange button" (click)="onFetchPosts()">პოსტების წამოღება</button>
-  <p *ngIf="!posts.length && !isLoading">არ არის პოსტები.</p>
-  <p *ngIf="isLoading && !error">პოსტები წამოღების პროცესშია.</p>
-  <div class="ui error message" *ngIf="error">
-    <i class="close icon" (click)="error = undefined"></i>
-    <div class="header">Error</div>
-    {{ error }}
-  </div>
-  <div class="ui segments" *ngIf="posts.length && !isLoading">
-    <div class="ui clearing segment" *ngFor="let post of posts">
-      <h3>{{ post.title }}</h3>
-      <p>{{ post.content }}</p>
-      <button class="ui right floated red icon button" (click)="onDeletePost(post.id)">
-        <i class="trash icon"></i>
-      </button>
+  <div class="ui menu">
+    <a class="item" routerLink="/bpm/bpm000" routerLinkActive="active">პოსტები</a>
+    <a class="item" routerLink="/bpm/bpm001" routerLinkActive="active">პოსტის დამატება</a>
+    <div class="right menu">
+      <a class="item" routerLink="/auth" routerLinkActive="active">სისტემაში შესვლა</a>
     </div>
   </div>
+  <router-outlet></router-outlet>
 </div>

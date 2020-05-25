@@ -1,0 +1,22 @@
+<form class="ui form" [formGroup]="form" (ngSubmit)="onSavePost()">
+  <div class="nine wide field">
+    <label>სათაური</label>
+    <input type="text" formControlName="title">
+    <ng-container *ngIf="get('title').invalid && get('title').touched">
+      <p class="error" *ngFor="let error of errors('title')">{{ error }}</p>
+    </ng-container>
+  </div>
+  <div class="nine wide field">
+    <label>შინაარსი</label>
+    <textarea rows="3" formControlName="content"></textarea>
+    <ng-container *ngIf="get('content').invalid && get('content').touched">
+      <p class="error" *ngFor="let error of errors('content')">{{ error }}</p>
+    </ng-container>
+  </div>
+  <button class="ui orange button">შენახვა</button>
+</form>
+<div class="ui error message" *ngIf="error">
+  <i class="close icon" (click)="error = undefined"></i>
+  <div class="header">Error</div>
+  {{ error }}
+</div>

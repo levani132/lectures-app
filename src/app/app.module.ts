@@ -4,17 +4,29 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { AuthInterceptorService } from './auth-interceptor.service';
-import { UrlInterceptorService } from './url-interceptor.service';
+import { AuthInterceptorService } from './shared/auth-interceptor.service';
+import { UrlInterceptorService } from './shared/url-interceptor.service';
+import { AuthComponent } from './auth/auth.component';
+import { ShellComponent } from './shell/shell.component';
+import { BpmComponent } from './shell/bpm/bpm.component';
+import { Bpm000Component } from './shell/bpm/bpm000/bpm000.component';
+import { Bpm001Component } from './shell/bpm/bpm001/bpm001.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AuthComponent,
+    ShellComponent,
+    BpmComponent,
+    Bpm000Component,
+    Bpm001Component
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [
     {
