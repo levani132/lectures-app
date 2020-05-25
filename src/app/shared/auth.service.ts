@@ -20,4 +20,13 @@ export class AuthService {
       catchError(err => throwError(err.error))
     );
   }
+
+  login(username, password) {
+    return this.http.post<AuthResponseModel>('login', {
+      username, password
+    }).pipe(
+      this.loaderService.useLoader,
+      catchError(err => throwError(err.error))
+    );
+  }
 }

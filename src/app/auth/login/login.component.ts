@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from 'src/app/shared/validators';
+import { AuthService } from 'src/app/shared/auth.service';
 
 @Component({
   selector: 'bg-login',
@@ -11,14 +12,27 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   error;
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
     this.initForm();
   }
 
   onLogin() {
-    console.log(this.form.value);
+    if (this.form.invalid) {
+      return;
+    }
+    const username = this.get('username').value;
+    const password = this.get('password').value;
+    this.authService.login(username, password).subscribe(
+      resData => {
+        console.log(resData);
+      },
+      error => {
+        this.error = error;
+      }
+    );
+    this.form.reset();
   }
 
   get(controlName) {
