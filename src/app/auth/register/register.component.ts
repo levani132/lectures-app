@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
         console.log(resData);
       },
       error => {
-        console.log(error);
+        this.error = error;
       }
     );
     this.form.reset();
