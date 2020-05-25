@@ -16,13 +16,13 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: LoginComponent
+        component: LoginComponent,
       },
       {
         path: 'register',
-        component: RegisterComponent
-      }
-    ]
+        component: RegisterComponent,
+      },
+    ],
   },
   {
     path: '',
@@ -34,25 +34,30 @@ const routes: Routes = [
         children: [
           {
             path: 'bpm000',
-            component: Bpm000Component
+            component: Bpm000Component,
           },
           {
             path: 'bpm001',
-            component: Bpm001Component
-          }
-        ]
+            component: Bpm001Component,
+          },
+          {
+            path: '',
+            redirectTo: 'bpm000',
+            pathMatch: 'full',
+          },
+        ],
       },
       {
         path: '',
-        redirectTo: '/bpm',
-        pathMatch: 'full'
-      }
-    ]
-  }
+        redirectTo: 'bpm',
+        pathMatch: 'full',
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

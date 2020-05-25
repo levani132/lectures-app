@@ -1,9 +1,24 @@
 <div class="ui container">
   <div class="ui menu">
-    <a class="item" routerLink="/bpm/bpm000" routerLinkActive="active">პოსტები</a>
-    <a class="item" routerLink="/bpm/bpm001" routerLinkActive="active">პოსტის დამატება</a>
+    <a class="item" routerLink="/bpm/bpm000" routerLinkActive="active"
+      >პოსტები</a
+    >
+    <a
+      class="item"
+      *ngIf="isAuthenticated"
+      routerLink="/bpm/bpm001"
+      routerLinkActive="active"
+      >პოსტის დამატება</a
+    >
     <div class="right menu">
-      <a class="item" routerLink="/auth" routerLinkActive="active">სისტემაში შესვლა</a>
+      <a
+        class="item"
+        routerLink="/auth"
+        routerLinkActive="active"
+        *ngIf="!isAuthenticated"
+        >სისტემაში შესვლა</a
+      >
+      <a class="item" *ngIf="isAuthenticated">გამოსვლა</a>
     </div>
   </div>
   <router-outlet></router-outlet>
