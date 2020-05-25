@@ -1,9 +1,34 @@
 <div class="ui container">
+  <h1>სემინარის დავალება</h1>
+  <ol>
+    <li>დაამატე შესვლის სერვისის გამოძახება.</li>
+    <li>დაჰენდლე ერორები ისე როგორც ეს რეგისტრაციაში ხდება.</li>
+    <li>
+      შექმენი user მოდელი
+      <a
+        href="https://bog-angular-course-api.herokuapp.com/#api-Unauthorized-loginPost"
+        target="_blank"
+        >ამ ლინკზე</a
+      >
+      მოცემული მოდელის მიხედვით.
+    </li>
+    <li>შეინახე user auth.service-ში Subject-ის საშუალებით.</li>
+    <li>
+      გააქრე ღილაკი 'სისტემაში შესვლა' და გამოაჩინე ღილაკი 'გამოსვლა' თუ
+      შენახული გვაქ მომხმარებელი.
+    </li>
+  </ol>
   <div class="ui menu">
-    <a class="item" routerLink="/bpm/bpm000" routerLinkActive="active">პოსტები</a>
-    <a class="item" routerLink="/bpm/bpm001" routerLinkActive="active">პოსტის დამატება</a>
+    <a class="item" routerLink="/bpm/bpm000" routerLinkActive="active"
+      >პოსტები</a
+    >
+    <a class="item" routerLink="/bpm/bpm001" routerLinkActive="active"
+      >პოსტის დამატება</a
+    >
     <div class="right menu">
-      <a class="item" routerLink="/auth" routerLinkActive="active">სისტემაში შესვლა</a>
+      <a class="item" routerLink="/auth" routerLinkActive="active"
+        >სისტემაში შესვლა</a
+      >
     </div>
   </div>
   <router-outlet></router-outlet>
