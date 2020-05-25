@@ -12,14 +12,14 @@ export class PostsService {
   constructor(private http: HttpClient) {}
 
   createPost(title: string, content: string) {
-    return this.http.post<{ id: number }>('posts', { title, content });
+    return this.http.post<{ id: number }>('lectures-api/posts', { title, content });
   }
 
   fetchPosts() {
-    return this.http.get<Post[]>('posts');
+    return this.http.get<Post[]>('lectures-api/posts');
   }
 
   deletePost(id) {
-    return this.http.delete('posts', { params: new HttpParams().set('id', id) });
+    return this.http.delete('lectures-api/posts', { params: new HttpParams().set('id', id) });
   }
 }
