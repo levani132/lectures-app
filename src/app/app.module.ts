@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { AuthInterceptorService } from './shared/auth-interceptor.service';
+import { AuthInterceptorService } from './shared/auth/auth-interceptor.service';
 import { UrlInterceptorService } from './shared/url-interceptor.service';
 import { AuthComponent } from './auth/auth.component';
 import { ShellComponent } from './shell/shell.component';

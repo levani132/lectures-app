@@ -16,7 +16,7 @@ export class LoaderService {
     this.isLoading = Math.max(this.isLoading - 1, 0);
   }
 
-  useLoader = (obs: Observable<any>) => {
+  useLoader = <T>(obs: Observable<T>): Observable<T> => {
     this.startLoading();
     return obs.pipe(finalize(() => this.endLoading()));
   }
