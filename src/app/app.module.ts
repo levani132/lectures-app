@@ -14,6 +14,7 @@ import { Bpm001Component } from './shell/bpm/bpm001/bpm001.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { LoaderComponent } from './shared/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RegisterComponent } from './auth/register/register.component';
     Bpm000Component,
     Bpm001Component,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
