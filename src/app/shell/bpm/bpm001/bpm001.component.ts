@@ -1,6 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Subscription } from 'rxjs';
 
 import { PostsService } from '../posts.service';
 import { Validators } from 'src/app/shared/validators';
@@ -10,27 +9,27 @@ import { Validators } from 'src/app/shared/validators';
   templateUrl: './bpm001.component.html',
   styleUrls: ['./bpm001.component.scss']
 })
-export class Bpm001Component implements OnInit, OnDestroy {
+export class Bpm001Component implements OnInit {
   form: FormGroup;
+  success;
   error;
-  errorSubscription: Subscription;
 
   constructor(private postsService: PostsService) {}
 
   ngOnInit() {
     this.initForm();
-
-    this.errorSubscription = this.postsService.error.subscribe(err => {
-      this.error = err;
-    });
-  }
-
-  ngOnDestroy() {
-    this.errorSubscription.unsubscribe();
   }
 
   onSavePost() {
-    this.postsService.createPost(this.form.value.title, this.form.value.content);
+    if (this.form.invalid) {
+      return;
+    }
+    this.postsService.createPost(this.form.value.title, this.form.value.content)
+      .subscribe(() => {
+        this.success = 'პოსტი წარმატებით დაემატა';
+      }, err => {
+        this.error = err.error;
+      });
   }
 
   get(controlName) {

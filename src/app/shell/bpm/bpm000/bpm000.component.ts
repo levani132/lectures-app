@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PostsService } from '../posts.service';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'bg-bpm000',
@@ -23,12 +24,13 @@ export class Bpm000Component implements OnInit {
   }
 
   onDeletePost(id) {
-    this.postsService.deletePost(id).pipe(obs => this.loader(obs)).subscribe(() => {
-      this.posts = this.posts.filter(post => post.id !== id);
-    }, error => {
-      this.error = error.error;
-      console.log(error);
-    });
+    this.postsService.deletePost(id)
+      .pipe(obs => this.loader(obs))
+      .subscribe(() => {
+        this.posts = this.posts.filter(post => post.id !== id);
+      }, error => {
+        this.error = error.error;
+      });
   }
 
   private fetchPosts() {
@@ -39,15 +41,7 @@ export class Bpm000Component implements OnInit {
 
   private loader<T>(observable: Observable<T>): Observable<T> {
     this.isLoading = true;
-    return new Observable<T>(observer => {
-      observable.subscribe(data => {
-        this.isLoading = false;
-        observer.next(data);
-      }, error => {
-        this.isLoading = false;
-        observer.error(error);
-      });
-    });
+    return observable.pipe(finalize(() => this.isLoading = false));
   }
 
 }
