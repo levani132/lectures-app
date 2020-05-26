@@ -47,6 +47,23 @@ export class AuthService {
       );
   }
 
+  autoLogin() {
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    if (!userData) {
+      return;
+    }
+    const user = new User(
+      userData.name,
+      userData.username,
+      userData.image,
+      userData._token,
+      new Date(userData._tokenExpirationDate)
+    );
+    if (user.token) {
+      this.user.next(user);
+    }
+  }
+
   logout() {
     this.user.next(undefined);
     this.router.navigate(['/auth']);
@@ -61,5 +78,6 @@ export class AuthService {
       new Date(resData.expirationDate)
     );
     this.user.next(user);
+    localStorage.setItem('userData', JSON.stringify(user));
   };
 }
