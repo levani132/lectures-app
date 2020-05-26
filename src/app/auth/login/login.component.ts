@@ -29,12 +29,12 @@ export class LoginComponent implements OnInit {
       (resData) => {
         console.log(resData);
         this.router.navigate(['/']);
+        this.form.reset();
       },
       (error) => {
         this.error = error;
       }
     );
-    this.form.reset();
   }
 
   get(controlName) {

@@ -7,7 +7,7 @@ import { AuthService } from 'src/app/shared/auth/auth.service';
 @Component({
   selector: 'bg-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
   form: FormGroup;
@@ -27,14 +27,14 @@ export class RegisterComponent implements OnInit {
     const username = this.get('username').value;
     const password = this.get('password').value;
     this.authService.register(name, username, password).subscribe(
-      resData => {
+      (resData) => {
         console.log(resData);
+        this.form.reset();
       },
-      error => {
+      (error) => {
         this.error = error;
       }
     );
-    this.form.reset();
   }
 
   get(controlName) {
@@ -42,7 +42,9 @@ export class RegisterComponent implements OnInit {
   }
 
   errors(controlName) {
-    return this.get(controlName)?.errors ? Object.values(this.get(controlName).errors) : [];
+    return this.get(controlName)?.errors
+      ? Object.values(this.get(controlName).errors)
+      : [];
   }
 
   initForm() {
@@ -50,20 +52,19 @@ export class RegisterComponent implements OnInit {
       name: new FormControl(undefined, [
         Validators.required,
         Validators.minLength(2),
-        Validators.maxLength(30)
+        Validators.maxLength(30),
       ]),
       username: new FormControl(undefined, [
         Validators.required,
         Validators.pattern(/^\S*$/, 'სფეისების გარეშე'),
         Validators.minLength(2),
-        Validators.maxLength(30)
+        Validators.maxLength(30),
       ]),
       password: new FormControl('', [
         Validators.required,
         Validators.minLength(2),
-        Validators.maxLength(30)
-      ])
+        Validators.maxLength(30),
+      ]),
     });
   }
-
 }
