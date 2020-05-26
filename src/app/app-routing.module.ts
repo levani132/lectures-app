@@ -8,6 +8,7 @@ import { Bpm000Component } from './shell/bpm/bpm000/bpm000.component';
 import { Bpm001Component } from './shell/bpm/bpm001/bpm001.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { AuthGuard } from './shared/auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -39,6 +40,7 @@ const routes: Routes = [
           {
             path: 'bpm001',
             component: Bpm001Component,
+            canActivate: [AuthGuard],
           },
           {
             path: '',
