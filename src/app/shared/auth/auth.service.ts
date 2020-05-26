@@ -13,6 +13,7 @@ import { User } from './user.model';
 })
 export class AuthService {
   user = new BehaviorSubject<User>(undefined);
+  private timer: any;
 
   constructor(
     private http: HttpClient,
@@ -62,11 +63,26 @@ export class AuthService {
     if (user.token) {
       this.user.next(user);
     }
+    this.autoLogout(
+      new Date(userData._tokenExpirationDate).getTime() - new Date().getTime()
+    );
   }
 
   logout() {
     this.user.next(undefined);
     this.router.navigate(['/auth']);
+    localStorage.removeItem('userData');
+    if (this.timer) {
+      clearTimeout(this.timer);
+    }
+    this.timer = undefined;
+  }
+
+  autoLogout(expirationDuration: number) {
+    this.timer = setTimeout(
+      () => this.logout(),
+      Math.min(2147483647, expirationDuration)
+    );
   }
 
   handleAuth = (resData: AuthResponseModel) => {
@@ -79,5 +95,6 @@ export class AuthService {
     );
     this.user.next(user);
     localStorage.setItem('userData', JSON.stringify(user));
+    this.autoLogout(resData.expirationDate - new Date().getTime());
   };
 }
