@@ -37,7 +37,7 @@
         *ngIf="!isAuthenticated"
         >სისტემაში შესვლა</a
       >
-      <a class="item" *ngIf="isAuthenticated">გამოსვლა</a>
+      <a class="item" *ngIf="isAuthenticated" (click)="onLogout()">გამოსვლა</a>
     </div>
   </div>
   <router-outlet></router-outlet>
