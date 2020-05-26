@@ -1,4 +1,6 @@
-<button class="ui orange button" (click)="onFetchPosts()">პოსტების წამოღება</button>
+<button class="ui orange button" (click)="onFetchPosts()">
+  პოსტების წამოღება
+</button>
 <p *ngIf="!posts.length && !isLoading">არ არის პოსტები.</p>
 <p *ngIf="isLoading && !error">პოსტები წამოღების პროცესშია.</p>
 <div class="ui error message" *ngIf="error">
@@ -10,7 +12,11 @@
   <div class="ui clearing segment" *ngFor="let post of posts">
     <h3>{{ post.title }}</h3>
     <p>{{ post.content }}</p>
-    <button class="ui right floated red icon button" (click)="onDeletePost(post.id)">
+    <button
+      class="ui right floated red icon button"
+      *ngIf="isLoggedIn"
+      (click)="onDeletePost(post.id)"
+    >
       <i class="trash icon"></i>
     </button>
   </div>
