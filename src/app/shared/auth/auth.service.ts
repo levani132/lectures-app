@@ -4,14 +4,14 @@ import { HttpClient } from '@angular/common/http';
 import { AuthResponseModel } from './auth-response.model';
 import { LoaderService } from '../loader/loader.service';
 import { catchError, tap } from 'rxjs/operators';
-import { throwError, Subject } from 'rxjs';
+import { throwError, BehaviorSubject } from 'rxjs';
 import { User } from './user.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  user = new Subject<User>();
+  user = new BehaviorSubject<User>(undefined);
 
   constructor(private http: HttpClient, private loaderService: LoaderService) {}
 
