@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+
 import { Validators } from 'src/app/shared/validators';
 import { AuthService } from 'src/app/shared/auth/auth.service';
-import { Router } from '@angular/router';
+import { AlertComponent } from '../../shared/alert/alert.component';
 
 @Component({
   selector: 'bg-login',
@@ -11,9 +13,12 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
-  error;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private cfr: ComponentFactoryResolver
+  ) {}
 
   ngOnInit() {
     this.initForm();
@@ -32,13 +37,9 @@ export class LoginComponent implements OnInit {
         this.form.reset();
       },
       (error) => {
-        this.error = error;
+        this.showError(error);
       }
     );
-  }
-
-  onCloseError() {
-    this.error = false;
   }
 
   get(controlName) {
@@ -65,5 +66,11 @@ export class LoginComponent implements OnInit {
         Validators.maxLength(30),
       ]),
     });
+  }
+
+  private showError(error: string) {
+    const alertComponentFactory = this.cfr.resolveComponentFactory(
+      AlertComponent
+    );
   }
 }
