@@ -37,6 +37,10 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  onCloseError() {
+    this.error = false;
+  }
+
   get(controlName) {
     return this.form.get(controlName);
   }

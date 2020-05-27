@@ -1,23 +1,30 @@
 <form class="ui form" [formGroup]="form" (ngSubmit)="onLogin()">
   <div class="nine wide field">
     <label>მომხმარებლის სახელი</label>
-    <input type="text" formControlName="username">
+    <input type="text" formControlName="username" />
     <ng-container *ngIf="get('username').invalid && get('username').touched">
       <p class="error" *ngFor="let error of errors('username')">{{ error }}</p>
     </ng-container>
   </div>
   <div class="nine wide field">
     <label>პაროლი</label>
-    <input type="password" formControlName="password">
+    <input type="password" formControlName="password" />
     <ng-container *ngIf="get('password').invalid && get('password').touched">
       <p class="error" *ngFor="let error of errors('password')">{{ error }}</p>
     </ng-container>
   </div>
   <button class="ui orange button" type="submit">შესვლა</button>
-  <a class="ui basic orange button" type="button" routerLink="/auth/register">რეგისტრაცია</a>
+  <a class="ui basic orange button" type="button" routerLink="/auth/register"
+    >რეგისტრაცია</a
+  >
 </form>
-<div class="ui error message" *ngIf="error">
+<!-- <div class="ui error message" *ngIf="error">
   <i class="close icon" (click)="error = undefined"></i>
   <div class="header">Error</div>
   {{ error }}
-</div>
+</div> -->
+<bg-alert
+  *ngIf="error"
+  [error]="error"
+  (closeClick)="onCloseError()"
+></bg-alert>

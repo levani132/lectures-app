@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoaderComponent } from './shared/loader/loader.component';
+import { AlertComponent } from './shared/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LoaderComponent } from './shared/loader/loader.component';
     Bpm001Component,
     LoginComponent,
     RegisterComponent,
-    LoaderComponent
+    LoaderComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
