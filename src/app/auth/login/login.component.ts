@@ -1,10 +1,16 @@
-import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ComponentFactoryResolver,
+  ViewChild,
+} from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { Validators } from 'src/app/shared/validators';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 import { AlertComponent } from '../../shared/alert/alert.component';
+import { PlaceholderDirective } from 'src/app/shared/placeholder.directive';
 
 @Component({
   selector: 'bg-login',
@@ -13,6 +19,8 @@ import { AlertComponent } from '../../shared/alert/alert.component';
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
+
+  @ViewChild(PlaceholderDirective) alertPlaceholder: PlaceholderDirective;
 
   constructor(
     private authService: AuthService,
@@ -71,6 +79,10 @@ export class LoginComponent implements OnInit {
   private showError(error: string) {
     const alertComponentFactory = this.cfr.resolveComponentFactory(
       AlertComponent
+    );
+    this.alertPlaceholder.viewContainerRef.clear();
+    this.alertPlaceholder.viewContainerRef.createComponent(
+      alertComponentFactory
     );
   }
 }
