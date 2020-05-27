@@ -3,9 +3,11 @@ import {
   OnInit,
   ComponentFactoryResolver,
   ViewChild,
+  OnDestroy,
 } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 import { Validators } from 'src/app/shared/validators';
 import { AuthService } from 'src/app/shared/auth/auth.service';
@@ -17,8 +19,9 @@ import { PlaceholderDirective } from 'src/app/shared/placeholder.directive';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   form: FormGroup;
+  closeSub: Subscription;
 
   @ViewChild(PlaceholderDirective) alertPlaceholder: PlaceholderDirective;
 
@@ -30,6 +33,12 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
+  }
+
+  ngOnDestroy() {
+    if (this.closeSub) {
+      this.closeSub.unsubscribe();
+    }
   }
 
   onLogin() {
@@ -81,8 +90,13 @@ export class LoginComponent implements OnInit {
       AlertComponent
     );
     this.alertPlaceholder.viewContainerRef.clear();
-    this.alertPlaceholder.viewContainerRef.createComponent(
+    const alertRef = this.alertPlaceholder.viewContainerRef.createComponent(
       alertComponentFactory
     );
+    alertRef.instance.error = error;
+    this.closeSub = alertRef.instance.closeClick.subscribe(() => {
+      this.closeSub.unsubscribe();
+      this.alertPlaceholder.viewContainerRef.clear();
+    });
   }
 }
