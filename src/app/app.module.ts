@@ -1,29 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AuthInterceptorService } from './shared/auth/auth-interceptor.service';
 import { UrlInterceptorService } from './shared/url-interceptor.service';
 import { AppRoutingModule } from './app-routing.module';
-import { LoaderComponent } from './shared/loader/loader.component';
-import { AlertComponent } from './shared/alert/alert.component';
-import { PlaceholderDirective } from './shared/placeholder.directive';
 import { AuthModule } from './auth/auth.module';
 import { ShellModule } from './shell/shell.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    // Shared module
-    LoaderComponent,
-    AlertComponent,
-    PlaceholderDirective,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
+    SharedModule,
     HttpClientModule,
     AppRoutingModule,
     AuthModule,
