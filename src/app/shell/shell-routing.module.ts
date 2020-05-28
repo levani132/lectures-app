@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ShellComponent } from './shell.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'bpm',
-    pathMatch: 'full',
+    component: ShellComponent,
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class ShellRoutingModule {}
