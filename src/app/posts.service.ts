@@ -18,7 +18,7 @@ export class PostsService {
       title, content
     };
     this.http
-      .post<{ id: number }>('https://bog-angular-course-api.herokuapp.com/lectures-api/posts', post, {
+      .post<{ id: number }>('posts', post, {
         headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Custom-Header': 'customHeaderValue' }),
         observe: 'response'
       })
@@ -31,13 +31,15 @@ export class PostsService {
 
   fetchPosts() {
     // TODO: Write code to fetch posts
+    return this.http.get<{title: string, content: string, id: number}[]>
+    ('posts');
   }
 
   deletePost(id) {
     let httpParams = new HttpParams();
     httpParams = httpParams.append('id', id);
     httpParams = httpParams.append('someSecondParam', 'someSecondValue');
-    return this.http.delete('https://bog-angular-course-api.herokuapp.com/lectures-api/posts', {
+    return this.http.delete('posts', {
       // params: new HttpParams().set('id', id),
       params: httpParams,
       observe: 'events',
