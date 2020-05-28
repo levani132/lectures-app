@@ -15,20 +15,23 @@ import { LoaderComponent } from './shared/loader/loader.component';
 import { AlertComponent } from './shared/alert/alert.component';
 import { PlaceholderDirective } from './shared/placeholder.directive';
 import { BpmModule } from './shell/bpm/bpm.module';
+import { AuthModule } from './auth/auth.module';
+import { ShellModule } from './shell/shell.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     // Shell module
-    ShellComponent,
+    // ShellComponent,
     // Auth module
-    AuthComponent,
-    LoginComponent,
-    RegisterComponent,
+    // AuthComponent,
+    // LoginComponent,
+    // RegisterComponent,
     // Shared module
     LoaderComponent,
     AlertComponent,
     PlaceholderDirective,
+
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,9 @@ import { BpmModule } from './shell/bpm/bpm.module';
     HttpClientModule,
     AppRoutingModule,
     // Shell module
-    BpmModule,
+    // BpmModule,
+    AuthModule,
+    ShellModule
   ],
   providers: [
     {
