@@ -14,6 +14,7 @@ export class BGValidators extends Validators {
         if (control.value && control.value.toLowerCase() === 'test') {
             return { testName: 'ეს სახელი აკრძალულია' };
         }
+        return undefined;
     }
 
     static testEmail(control: FormControl) {

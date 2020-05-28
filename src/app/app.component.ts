@@ -30,7 +30,7 @@ export class AppComponent implements OnInit, OnDestroy {
     return this.projectForm.get(control);
   }
 
-  errors(controlName: string | (string | number)[]) {
+  errors(controlName) {
     return Object.values(this.get(controlName).errors);
   }
 
