@@ -19,10 +19,13 @@ import { BpmModule } from './shell/bpm/bpm.module';
 @NgModule({
   declarations: [
     AppComponent,
-    AuthComponent,
+    // Shell module
     ShellComponent,
+    // Auth module
+    AuthComponent,
     LoginComponent,
     RegisterComponent,
+    // Shared module
     LoaderComponent,
     AlertComponent,
     PlaceholderDirective,
@@ -32,6 +35,7 @@ import { BpmModule } from './shell/bpm/bpm.module';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
+    // Shell module
     BpmModule,
   ],
   providers: [
