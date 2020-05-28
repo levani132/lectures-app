@@ -31,8 +31,7 @@ export class PostsService {
 
   fetchPosts() {
     // TODO: Write code to fetch posts
-    return this.http.get<{title: string, content: string, id: number}[]>
-    ('posts');
+    return this.http.get<{title: string, content: string, id: number}[]>('posts');
   }
 
   deletePost(id) {
