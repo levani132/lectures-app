@@ -42,4 +42,4 @@ import { ShellModule } from './shell/shell.module';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -18,4 +18,4 @@ import { BpmModule } from './bpm/bpm.module';
         BpmModule
     ]
 })
-export class ShellModule { }
+export class ShellModule {}
