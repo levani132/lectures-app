@@ -6,26 +6,16 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AuthInterceptorService } from './shared/auth/auth-interceptor.service';
 import { UrlInterceptorService } from './shared/url-interceptor.service';
-import { AuthComponent } from './auth/auth.component';
-import { ShellComponent } from './shell/shell.component';
 import { AppRoutingModule } from './app-routing.module';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { AlertComponent } from './shared/alert/alert.component';
 import { PlaceholderDirective } from './shared/placeholder.directive';
-import { BpmModule } from './shell/bpm/bpm.module';
+import { AuthModule } from './auth/auth.module';
+import { ShellModule } from './shell/shell.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    // Shell module
-    ShellComponent,
-    // Auth module
-    AuthComponent,
-    LoginComponent,
-    RegisterComponent,
-    // Shared module
     LoaderComponent,
     AlertComponent,
     PlaceholderDirective,
@@ -35,8 +25,8 @@ import { BpmModule } from './shell/bpm/bpm.module';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    // Shell module
-    BpmModule,
+    AuthModule,
+    ShellModule
   ],
   providers: [
     {
@@ -52,4 +42,4 @@ import { BpmModule } from './shell/bpm/bpm.module';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
