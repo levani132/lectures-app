@@ -4,8 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AuthModule } from './auth/auth.module';
-import { ShellModule } from './shell/shell.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
 
@@ -16,8 +14,6 @@ import { CoreModule } from './core.module';
     SharedModule,
     HttpClientModule,
     AppRoutingModule,
-    AuthModule,
-    ShellModule,
     CoreModule,
   ],
   bootstrap: [AppComponent],
