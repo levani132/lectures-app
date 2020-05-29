@@ -6,6 +6,17 @@ const routes: Routes = [
   {
     path: '',
     component: ShellComponent,
+    children: [
+      {
+        path: 'bpm',
+        loadChildren: () => import('./bpm/bpm.module').then((m) => m.BpmModule),
+      },
+      {
+        path: '',
+        redirectTo: 'bpm',
+        pathMatch: 'full',
+      },
+    ],
   },
 ];
 

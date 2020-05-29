@@ -8,7 +8,7 @@ import { Bpm001Component } from './bpm001/bpm001.component';
 
 const routes: Routes = [
   {
-    path: 'bpm',
+    path: '',
     component: BpmComponent,
     children: [
       {
