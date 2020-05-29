@@ -10,6 +10,7 @@ const routes: Routes = [
       {
         path: 'bpm',
         loadChildren: () => import('./bpm/bpm.module').then((m) => m.BpmModule),
+        data: { preload: true },
       },
       {
         path: '',
